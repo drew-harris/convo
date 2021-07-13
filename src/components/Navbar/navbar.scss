@@ -1,0 +1,18 @@
+.navbar {
+  background-color: #F1F1F1;
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  color: #B6B6B6;
+  
+  // Maybe remove
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 25px;
+}
+
+.navbar-icon-active {
+  color: black;
+}

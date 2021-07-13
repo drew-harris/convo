@@ -1,9 +1,16 @@
 import React from "react";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { auth } from "../../firebase/firebase";
-import { Box, Text, Main, Button } from "grommet";
 import { useAuth } from "../../hooks/auth";
 import { useHistory } from "react-router";
+
+import { Groups } from "../HomeRoutes/Groups";
+import { GroupsAdd } from "../HomeRoutes/GroupsAdd";
+import { Feed } from "../HomeRoutes/Feed";
+import { Settings } from "../HomeRoutes/Settings";
+
+import { Navbar } from "../Navbar/Navbar";
 
 const Home = () => {
   const user = useAuth();
@@ -17,16 +24,21 @@ const Home = () => {
     });
   }, []);
 
-  if (!user) {
+  if (!auth.currentUser) {
     return null;
   } else {
     return (
-      <Main>
-        <Box>
-          <Text>HomePage</Text>
-          <Button onClick={() => auth.signOut()}> Log out</Button>
-        </Box>
-      </Main>
+      <>
+        <Router>
+          <Switch>
+            <Route path="/groups/add" component={GroupsAdd} />
+            <Route path="/groups" component={Groups} />
+            <Route path="/settings" component={Settings} />
+            <Route exact path="/" component={Feed} />
+          </Switch>
+        </Router>
+        <Navbar />
+      </>
     );
   }
 };

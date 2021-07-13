@@ -1,81 +1,77 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { auth } from "../../firebase/firebase";
-import {
-  Box,
-  Main,
-  Header,
-  Anchor,
-  Form,
-  FormField,
-  TextInput,
-  Button,
-} from "grommet";
+import { auth, db, timestamp } from "../../firebase/firebase";
 import { useAuth } from "../../hooks/auth";
 import { useHistory } from "react-router-dom";
+import { SignNavCorner } from "../Misc/SignNavCorner";
 
 const Register = () => {
   const history = useHistory();
   const [user] = useAuth();
-  const [value, setValue] = useState({
-    email: "",
-    password: "",
-    username: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const signUp = async () => {
     try {
       const userCredential = await auth.createUserWithEmailAndPassword(
-        value.email,
-        value.password
+        email,
+        password
       );
 
       await userCredential.user.updateProfile({
-        displayName: value.username,
+        displayName: username,
       });
       console.log(auth.currentUser);
-      // Redirect to Feed
+
+      //TODO: Fix firebase permissions
+      await db.collection("users").add({
+        username: username,
+        dateCreated: timestamp.now(),
+      });
       history.push("/");
     } catch (e) {
       /* handle error */
-      console.log(e.message);
+      console.error(e.message);
     }
   };
 
   useEffect(() => {}, []);
   return (
-    <Main>
-      <Header>
-        <Anchor href="/login" label="Log In" />
-      </Header>
-
-      <Box margin="large" className="form-container" border="all">
-        <Form
-          value={value}
-          onChange={(nextValue) => setValue(nextValue)}
-          onReset={() => setValue({})}
-          onSubmit={signUp}
+    <div className="registration-screen">
+      <div className="registration-card-container">
+        <div className="registration-pagetitle">Register</div>
+        <div className="registration-input-container">
+          <input
+            className="registration-input"
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="Email"
+            value={email}
+          />
+          <input
+            className="registration-input"
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Password"
+            type="password"
+            value={password}
+          />
+          <input
+            className="registration-input"
+            onChange={(event) => setUsername(event.target.value)}
+            placeholder="Username"
+            value={username}
+          />
+        </div>
+        <button
+          type="submit"
+          onClick={signUp}
+          className="registration-submitbutton"
         >
-          <FormField name="email" htmlFor="text-input-id" label="Email">
-            <TextInput id="text-input-id" name="email" />
-          </FormField>
-          <FormField name="password" htmlFor="text-input-id" label="Password">
-            <TextInput id="text-input-id" name="password" type="password" />
-          </FormField>
-          <FormField name="username" htmlFor="text-input-id" label="Username">
-            <TextInput id="text-input-id" name="username" />
-          </FormField>
-          <Box direction="row" gap="medium">
-            <Button
-              type="submit"
-              onClick={() => console.log(value)}
-              primary
-              label="Sign Up"
-            />
-          </Box>
-        </Form>
-      </Box>
-    </Main>
+          Submit
+        </button>
+      </div>
+      <SignNavCorner name="Login" path="/login" />
+    </div>
   );
 };
 
