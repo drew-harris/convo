@@ -1,0 +1,26 @@
+.banner-container {
+  position: fixed;
+  text-align: center;
+  top: 30px;
+  left: 50%;
+  margin-left: -25vw;
+  margin-right: auto;
+  width: 50vw;
+  background-color: white;
+  border-radius: 1.5rem;
+  padding: 10px;
+  transform: translateY(-80px);
+}
+
+.banner-t-enter {
+  transform: translateY(-80px);
+}
+
+.banner-t-enter-active {
+  transform: translateY(0px);
+  transition: transform 0.1s ease-out;
+}
+
+.banner-t-enter-done {
+  transform: translateY(0px);
+}

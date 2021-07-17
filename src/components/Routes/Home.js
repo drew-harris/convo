@@ -5,8 +5,7 @@ import { auth } from "../../firebase/firebase";
 import { useAuth } from "../../hooks/auth";
 import { useHistory } from "react-router";
 
-import { Groups } from "../HomeRoutes/Groups";
-import { GroupsAdd } from "../HomeRoutes/GroupsAdd";
+import { Groups } from "../HomeRoutes/Groups/Groups";
 import { Feed } from "../HomeRoutes/Feed";
 import { Settings } from "../HomeRoutes/Settings";
 
@@ -31,7 +30,6 @@ const Home = () => {
       <>
         <Router>
           <Switch>
-            <Route path="/groups/add" component={GroupsAdd} />
             <Route path="/groups" component={Groups} />
             <Route path="/settings" component={Settings} />
             <Route exact path="/" component={Feed} />

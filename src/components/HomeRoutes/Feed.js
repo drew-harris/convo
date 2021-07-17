@@ -1,4 +1,5 @@
 import React from "react";
+import "./feed.scss";
 import { auth } from "../../firebase/firebase";
 
 const Feed = () => {

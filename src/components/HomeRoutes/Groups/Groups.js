@@ -1,5 +1,5 @@
 import React from "react";
-import { auth } from "../../firebase/firebase";
+import { auth } from "../../../firebase/firebase";
 import { Main, Header, Anchor, Box, Button } from "grommet";
 import { useHistory } from "react-router-dom";
 
