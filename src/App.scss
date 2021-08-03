@@ -5,9 +5,10 @@
 }
 
 div.firebase-emulator-warning {
-  top: 0;
+  //top: 0;
   height: 30px;
-  width: 200px !important;
+  width: 30px !important;
   overflow: hidden;
-  display: none;
+  background-color: lime !important;
+  //display: none;
 }

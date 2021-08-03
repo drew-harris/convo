@@ -1,3 +1,20 @@
-const allowEmulation = true;
+const allowEmulation = false;
 
-export { allowEmulation };
+const colorNames = [
+  "red",
+  "orange",
+  "mustard",
+  "yellow",
+  "green",
+  "mint",
+  "bluegreen",
+  "cyan",
+  "skyblue",
+  "deepblue",
+  "purpleblue",
+  "purple",
+  "pink",
+  "pinkred",
+];
+
+export { allowEmulation, colorNames };

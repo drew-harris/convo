@@ -19,9 +19,9 @@ const Navbar = () => {
   let chatIconClass = "";
   let groupsIconClass = "";
 
-  if (location.pathname == "/") {
+  if (location.pathname === "/") {
     chatIconClass = "navbar-icon-container navbar-icon-active";
-  } else if (location.pathname == "/groups") {
+  } else if (location.pathname === "/groups") {
     chatIconClass = "navbar-icon-container";
     groupsIconClass = "navbar-icon-container navbar-icon-active";
   }

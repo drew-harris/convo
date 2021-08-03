@@ -1,35 +1,43 @@
 import React from "react";
+import { useState } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { auth } from "../../firebase/firebase";
-import { useAuth } from "../../hooks/auth";
+import { auth, remoteConfig } from "../../firebase/firebase";
 import { useHistory } from "react-router";
 
 import { Groups } from "../HomeRoutes/Groups/Groups";
-import { Feed } from "../HomeRoutes/Feed";
+import { Feed } from "../HomeRoutes/Feed/Feed";
 import { Settings } from "../HomeRoutes/Settings";
 
 import { Navbar } from "../Navbar/Navbar";
+import { GroupView } from "../HomeRoutes/GroupView/GroupView";
 
 const Home = () => {
-  const user = useAuth();
   let history = useHistory();
+
+  const [userLoaded, setUserLoaded] = useState(false);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (!user) {
         history.push("/login");
+      } else {
+        setUserLoaded(true);
       }
     });
-  }, []);
+  }, [history]);
+  const appEnabled = remoteConfig.getBoolean("app_enabled");
+  console.log(appEnabled);
+  console.log(remoteConfig.lastFetchStatus);
 
-  if (!auth.currentUser) {
+  if (!userLoaded) {
     return null;
-  } else {
+  } else if (appEnabled) {
     return (
       <>
         <Router>
           <Switch>
+            <Route path="/groups/:id" component={GroupView} />
             <Route path="/groups" component={Groups} />
             <Route path="/settings" component={Settings} />
             <Route exact path="/" component={Feed} />
@@ -38,6 +46,8 @@ const Home = () => {
         <Navbar />
       </>
     );
+  } else {
+    return <h1>Hype</h1>;
   }
 };
 

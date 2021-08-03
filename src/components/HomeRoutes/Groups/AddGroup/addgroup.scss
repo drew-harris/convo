@@ -1,0 +1,68 @@
+@import '../../../../variables';
+@import '../../../../backgroundcolors';
+
+.addgroup-container {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: $new-group-gray;
+  color: white;
+  text-align: center;
+  margin-top: 10px;
+  padding-left: 26px;
+  padding-right: 26px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
+
+  //For open state
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.addgroup-input {
+  background-color: transparent;
+  border: 1px solid white;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+
+.addgroup-createbutton {
+  font-weight: 700;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 10px;
+  width: 30%;
+}
+
+.colorpicker-container {
+  display: flex;
+  overflow: scroll;
+  width: 100%;
+  gap: 18px;
+  align-items: center;
+  padding: 10px;
+
+}
+
+.colorpicker-circle {
+  max-width: 35px;
+  max-height: 35px;
+  min-width: 35px;
+  min-height: 35px;
+  border-radius: 50%;
+}
+
+.colorpicker-active {
+  max-width: 40px;
+  max-height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 50%;
+  border: 2px solid white;
+}

@@ -3,8 +3,6 @@ import "./infobanner.scss";
 import { CSSTransition } from "react-transition-group";
 
 const InfoBanner = (props) => {
-  const nodeRef = React.useRef(null);
-
   return (
     <div>
       <CSSTransition

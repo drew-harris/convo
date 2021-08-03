@@ -1,0 +1,28 @@
+@import "../../../../variables";
+@import "../../../../backgroundcolors";
+
+.addmemberoverlay-container {
+  position: fixed;
+  height: 30vh;
+  bottom: 50px;
+  right: 0px;
+  left: 0px;
+  padding: 16px;
+  background-color: #F1F1F1;
+  z-index: 500;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.addmemberoverlay-header {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.addmemberoverlay-pillcontainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}

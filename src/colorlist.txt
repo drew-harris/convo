@@ -1,0 +1,16 @@
+black
+red
+orange
+mustard
+yellow
+lime
+green
+mint
+bluegreen
+cyan
+skyblue
+deepblue
+purpleblue
+purple
+pink
+pinkred

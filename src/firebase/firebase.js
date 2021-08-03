@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
+import "firebase/remote-config";
 import { allowEmulation } from "../constants";
 
 const firebaseConfig = {
@@ -16,7 +17,29 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth();
 const db = firebase.firestore();
-const timestamp = firebase.firestore.Timestamp;
+const remoteConfig = firebase.remoteConfig();
+
+// TODO : Change this TODO : Change this TODO : Change this
+remoteConfig.settings.minimumFetchIntervalMillis = 1000;
+
+remoteConfig.defaultConfig = {
+  hype_message: "Welcome",
+  app_enabled: false,
+};
+
+remoteConfig
+  .fetchAndActivate()
+  .then(() => {
+    console.log(remoteConfig.lastFetchStatus);
+  })
+  .catch((err) => {
+    console.error(err.message);
+  });
+
+const timestamp = firebase.firestore.FieldValue.serverTimestamp;
+
+const dbArrayUnion = firebase.firestore.FieldValue.arrayUnion;
+const dbArrayRemove = firebase.firestore.FieldValue.arrayRemove;
 
 // Set up emulators
 if (window.location.hostname === "localhost" && allowEmulation) {
@@ -28,4 +51,4 @@ if (window.location.hostname === "localhost" && allowEmulation) {
   db.useEmulator("localhost", 8080);
 }
 
-export { auth, db, timestamp };
+export { auth, db, remoteConfig, timestamp, dbArrayUnion, dbArrayRemove };

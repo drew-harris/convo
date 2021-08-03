@@ -1,0 +1,61 @@
+@import '../../../variables';
+@import '../../../backgroundcolors';
+
+.groupview-screen {
+  padding: 26px;
+}
+
+.groupview-titleheader {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.groupview-subheader {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 12px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.groupview-editmembersbutton {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: #3B82F6;
+}
+
+.groupview-conditionalcontainer {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.groupview-removewarning {
+  font-size: 12px;
+  color: red;
+}
+
+.groupview-pillcontainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pill {
+  padding: 10px;
+  border-radius: 14px;
+  font-size: 14px;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
+}
+
+.pillcolor-white {
+  background-color: white;
+
+}
+
+.pillcolor-gray {
+  background-color: $convo-light-gray;
+}

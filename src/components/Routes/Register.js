@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { auth, db, timestamp } from "../../firebase/firebase";
-import { useAuth } from "../../hooks/auth";
 import { useHistory } from "react-router-dom";
 import { SignNavCorner } from "../Misc/SignNavCorner";
 import { InfoBanner } from "../InfoBanner/InfoBanner";
 
+// TODO: Check if username is already taken
+
 const Register = () => {
   const history = useHistory();
-  const [user] = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
@@ -30,7 +30,7 @@ const Register = () => {
       //TODO: Fix firebase permissions
       await db.collection("users").add({
         username: username,
-        dateCreated: timestamp.now(),
+        dateCreated: timestamp(),
       });
       history.push("/");
     } catch (e) {

@@ -1,15 +1,14 @@
 import { auth } from "../firebase/firebase";
 import { useState, useEffect } from "react";
 
-const useAuth = (props) => {
+const useAuth = () => {
   const [user, setUser] = useState(null);
   useEffect(() => {
-    let changer = auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       setUser(user);
     });
     return () => {
       console.log("CLEANUP RAN");
-      changer = undefined;
     };
   }, []);
 
