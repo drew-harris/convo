@@ -1,16 +1,63 @@
 import React, { useState, useEffect } from "react";
-import { db, auth } from "../../../../firebase/firebase";
+import { db, auth, timestamp } from "../../../../firebase/firebase";
 import { GroupSelect } from "./GroupSelect/GroupSelect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const NewPost = (props) => {
   const [open, setOpen] = useState(false);
 
   const [pickerData, setPickerData] = useState(null);
   const [selected, setSelected] = useState(null);
+  const [postText, setPostText] = useState("");
 
   const pickerChange = (selection) => {
     console.log(selection);
     setSelected(selection);
+  };
+
+  const addPost = async () => {
+    try {
+      if (selected === null) {
+        throw new Error("Please select a group to post to.");
+      }
+      if (postText.length < 3) {
+        throw new Error("Please enter text to post");
+      }
+
+      let groupRef = db.collection("groups").doc(selected.id);
+      const snap = await groupRef.get();
+      const members = await snap.get("members");
+      console.log(members);
+
+      let docref = db
+        .collection("groups")
+        .doc(selected.id)
+        .collection("posts")
+        .doc();
+
+      docref.set({
+        id: docref.id,
+        members: members,
+        groupInfo: {
+          groupRef: groupRef,
+          groupName: selected.name,
+          groupId: selected.id,
+          color: selected.color,
+        },
+        creator: auth.currentUser.displayName,
+        created: timestamp(),
+        text: postText,
+      });
+
+      // Close the add post component
+      setSelected(null);
+      setPostText("");
+      setOpen(false);
+    } catch (err) {
+      console.error(err.message);
+      alert(err.message);
+    }
   };
 
   useEffect(() => {
@@ -37,9 +84,13 @@ const NewPost = (props) => {
   }, []);
 
   if (open) {
+    //TODO: Make new post appear center
     return (
       <div className="newpost-container">
-        <div>New Post</div>
+        <div className="newpost-titleandclose">
+          <div className="newpost-title">New Post</div>
+          <FontAwesomeIcon icon={faTimes} onClick={() => setOpen(false)} />
+        </div>
         <GroupSelect
           data={pickerData}
           selected={selected}
@@ -51,9 +102,13 @@ const NewPost = (props) => {
           cols="auto"
           rows={3}
           className="newpost-input"
+          value={postText}
+          onChange={(event) => setPostText(event.target.value)}
         />
 
-        <div className="newpost-createbutton">Post</div>
+        <div className="newpost-createbutton" onClick={addPost}>
+          Post
+        </div>
       </div>
     );
   } else {
