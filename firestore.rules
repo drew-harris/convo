@@ -10,6 +10,11 @@ service cloud.firestore {
     match /groups/{document} {
       allow read, write: if true;
     }
+
+    match /groups/{group}/posts/{document} {
+      allow read, write: if true;
+    }
+
     match /{document=**} {
       allow read, write: if false;
     }
