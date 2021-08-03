@@ -7,7 +7,6 @@ import { useHistory } from "react-router";
 
 import { Groups } from "../HomeRoutes/Groups/Groups";
 import { Feed } from "../HomeRoutes/Feed/Feed";
-import { Settings } from "../HomeRoutes/Settings";
 
 import { Navbar } from "../Navbar/Navbar";
 import { GroupView } from "../HomeRoutes/GroupView/GroupView";
@@ -39,7 +38,6 @@ const Home = () => {
           <Switch>
             <Route path="/groups/:id" component={GroupView} />
             <Route path="/groups" component={Groups} />
-            <Route path="/settings" component={Settings} />
             <Route exact path="/" component={Feed} />
           </Switch>
         </Router>
