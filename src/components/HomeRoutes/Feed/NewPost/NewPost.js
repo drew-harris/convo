@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { db, auth } from "../../../../firebase/firebase";
+import { db, auth, timestamp } from "../../../../firebase/firebase";
 import { GroupSelect } from "./GroupSelect/GroupSelect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const NewPost = (props) => {
   const [open, setOpen] = useState(false);
@@ -34,15 +36,24 @@ const NewPost = (props) => {
         .collection("posts")
         .doc();
 
-      //TODO: ADD TIME CREATED
       docref.set({
         id: docref.id,
         members: members,
-        groupRef: groupRef,
-        groupName: selected.name,
-        groupId: selected.id,
+        groupInfo: {
+          groupRef: groupRef,
+          groupName: selected.name,
+          groupId: selected.id,
+          color: selected.color,
+        },
         creator: auth.currentUser.displayName,
+        created: timestamp(),
+        text: postText,
       });
+
+      // Close the add post component
+      setSelected(null);
+      setPostText("");
+      setOpen(false);
     } catch (err) {
       console.error(err.message);
       alert(err.message);
@@ -73,9 +84,13 @@ const NewPost = (props) => {
   }, []);
 
   if (open) {
+    //TODO: Make new post appear center
     return (
       <div className="newpost-container">
-        <div>New Post</div>
+        <div className="newpost-titleandclose">
+          <div className="newpost-title">New Post</div>
+          <FontAwesomeIcon icon={faTimes} onClick={() => setOpen(false)} />
+        </div>
         <GroupSelect
           data={pickerData}
           selected={selected}
