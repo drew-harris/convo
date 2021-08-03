@@ -87,10 +87,12 @@ const NewPost = (props) => {
     //TODO: Make new post appear center
     return (
       <div className="newpost-container">
-        <div className="newpost-titleandclose">
-          <div className="newpost-title">New Post</div>
-          <FontAwesomeIcon icon={faTimes} onClick={() => setOpen(false)} />
-        </div>
+        <span className="newpost-titleandclose">
+          New Post
+          <div className="newpost-closeicon" onClick={() => setOpen(false)}>
+            <FontAwesomeIcon icon={faTimes} />
+          </div>
+        </span>
         <GroupSelect
           data={pickerData}
           selected={selected}

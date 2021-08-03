@@ -50,5 +50,13 @@
 .newpost-titleandclose {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
+
+.newpost-closeicon {
+  position: absolute;
+  right: 16px;
+  font-size: 20px;
+}
+
+
