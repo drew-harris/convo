@@ -49,6 +49,7 @@ const NewPost = (props) => {
         created: timestamp(),
         text: postText,
         lastComment: null,
+        commentCount: 0,
       });
 
       // Close the add post component

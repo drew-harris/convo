@@ -1,4 +1,61 @@
 @import "../../../variables";
 @import "../../../backgroundcolors";
 
+.comments {
+  position: fixed;
+  bottom: 0;
+  height: 50vh;
+  left: 0px;
+  right: 0px;
+  padding: 10px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: 1px solid lime;
+  background-color: $convo-light-gray;
+  z-index: 900;
+}
 
+.comments-headerbar {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments-add-container {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  right: 12px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  background-color: white;
+
+}
+
+.comments-add-textfield {
+  flex-grow: 1;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.comments-add-sendbutton {
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 100%;
+  color: #3B82F6;
+}
+
+.comments-overlay-clickoff {
+  position: fixed;
+  background-color: transparent;
+  top: 0px;
+  left: 0px;
+  height: 90vh;
+  width: 100%;
+  z-index: 400;
+}
