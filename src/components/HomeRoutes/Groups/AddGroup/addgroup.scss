@@ -42,7 +42,8 @@
 
 .colorpicker-container {
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
   width: 100%;
   gap: 18px;
   align-items: center;
