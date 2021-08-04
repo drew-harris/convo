@@ -51,12 +51,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .newpost-closeicon {
   position: absolute;
-  right: 16px;
+  right: 0px;
   font-size: 20px;
 }
-
 
