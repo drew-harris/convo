@@ -31,7 +31,6 @@ const PostsView = (props) => {
             posts.push(doc.data());
           });
           setData(posts);
-          console.table(posts);
         });
 
         return unsubscribe;
@@ -40,7 +39,7 @@ const PostsView = (props) => {
       }
     };
     setUpDataStream();
-  }, []);
+  }, [props.id]);
 
   const posts = data.map((postData) => {
     return <Post key={postData.id} data={postData} />;
