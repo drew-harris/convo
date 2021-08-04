@@ -24,7 +24,7 @@ remoteConfig.settings.minimumFetchIntervalMillis = 1000;
 
 remoteConfig.defaultConfig = {
   hype_message: "Welcome",
-  app_enabled: true,
+  app_enabled: false,
 };
 
 remoteConfig
