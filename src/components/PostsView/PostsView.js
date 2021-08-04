@@ -14,13 +14,15 @@ const PostsView = (props) => {
         if (!props.id) {
           ref = db
             .collectionGroup("posts")
-            .where("members", "array-contains", auth.currentUser.displayName);
+            .where("members", "array-contains", auth.currentUser.displayName)
+            .orderBy("created", "desc");
         } else {
           ref = db
             .collection("groups")
             .doc(props.id)
             .collection("posts")
-            .where("members", "array-contains", auth.currentUser.displayName);
+            .where("members", "array-contains", auth.currentUser.displayName)
+            .orderBy("created", "desc");
         }
 
         const unsubscribe = ref.onSnapshot((querySnap) => {
