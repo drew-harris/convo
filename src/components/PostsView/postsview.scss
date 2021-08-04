@@ -1,0 +1,11 @@
+@import "../../variables";
+@import "../../backgroundcolors";
+
+.postsview-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+
+}
