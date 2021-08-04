@@ -75,7 +75,6 @@ const NewPost = (props) => {
             });
           });
           setPickerData(data);
-          console.table(data);
         });
     } catch (err) {
       /* handle error */

@@ -1,4 +1,4 @@
-const allowEmulation = false;
+const allowEmulation = true;
 
 const colorNames = [
   "red",
