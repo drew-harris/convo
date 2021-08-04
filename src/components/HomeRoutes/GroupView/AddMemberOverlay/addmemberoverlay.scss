@@ -19,6 +19,8 @@
 .addmemberoverlay-header {
   font-size: 24px;
   font-weight: 700;
+  display: flex;
+  justify-content: space-between;
 }
 
 .addmemberoverlay-pillcontainer {
@@ -26,3 +28,4 @@
   gap: 10px;
   margin-top: 10px;
 }
+

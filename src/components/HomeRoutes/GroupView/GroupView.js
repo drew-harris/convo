@@ -102,6 +102,7 @@ const GroupView = (props) => {
           color="white"
           open={open}
           handleTouch={handleTouch}
+          handleClose={() => setOpen(false)}
         />
         <div className="groupview-screen">
           <div className="groupview-titleheader">{groupData.name}</div>
