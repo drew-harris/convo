@@ -68,6 +68,11 @@ background-size: 1800% 1800%;
 -z-animation: rainbow 18s ease infinite;
 -o-animation: rainbow 18s ease infinite;
   animation: rainbow 18s ease infinite;
+
+}
+
+.convo-bg-black {
+  background-color: black;
 }
 
 @-webkit-keyframes rainbow {

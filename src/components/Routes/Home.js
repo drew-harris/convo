@@ -10,11 +10,14 @@ import { Feed } from "../HomeRoutes/Feed/Feed";
 
 import { Navbar } from "../Navbar/Navbar";
 import { GroupView } from "../HomeRoutes/GroupView/GroupView";
+import { HypeScreen } from "./HypeScreen/HypeScreen";
+import { InstallPopup } from "../Misc/InstallPopup";
 
 const Home = () => {
   let history = useHistory();
 
   const [userLoaded, setUserLoaded] = useState(false);
+  const [showInstallPopup, setShowInstallPopup] = useState(false);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -24,7 +27,16 @@ const Home = () => {
         setUserLoaded(true);
       }
     });
+
+    if (window.matchMedia("(display-mode: standalone)").matches) {
+      console.log("installed");
+    } else {
+      console.log("NEED TO INSTALL");
+      setShowInstallPopup(true);
+    }
   }, [history]);
+
+  console.log(remoteConfig.getBoolean("app_enabled"));
   const appEnabled = remoteConfig.getBoolean("app_enabled");
 
   if (!userLoaded) {
@@ -32,6 +44,7 @@ const Home = () => {
   } else if (appEnabled) {
     return (
       <>
+        {showInstallPopup ? <InstallPopup /> : null}
         <Router>
           <Switch>
             <Route path="/groups/:id" component={GroupView} />
@@ -43,7 +56,12 @@ const Home = () => {
       </>
     );
   } else {
-    return <h1>Coming soon</h1>;
+    return (
+      <>
+        {showInstallPopup ? <InstallPopup /> : null}
+        <HypeScreen />
+      </>
+    );
   }
 };
 
