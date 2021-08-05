@@ -1,5 +1,5 @@
-const allowEmulation = true;
-const SHOW_INSTALL_POPUP = true;
+const allowEmulation = false;
+const SHOW_INSTALL_POPUP = false;
 
 const colorNames = [
   "red",

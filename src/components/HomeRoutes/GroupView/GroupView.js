@@ -8,6 +8,7 @@ import {
 } from "../../../firebase/firebase";
 import { MemberPill } from "./MemberPill";
 import { AddMemberOverlay } from "./AddMemberOverlay/AddMemberOverlay";
+import { PostsView } from "../../PostsView/PostsView";
 import "./groupview.scss";
 
 const GroupView = (props) => {
@@ -124,6 +125,9 @@ const GroupView = (props) => {
             ) : null}
           </div>
           <div className="groupview-pillcontainer">{memberPills}</div>
+          <div className="groupview-subheader">Posts</div>
+
+          <PostsView id={id} />
         </div>
       </>
     );
