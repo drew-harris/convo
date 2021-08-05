@@ -14,13 +14,8 @@ const Post = (props) => {
     commentCount,
   } = props.data;
 
-  const [open, setOpen] = useState(false);
-
   return (
     <>
-      {open ? (
-        <Comments id={id} groupInfo={groupInfo} close={() => setOpen(false)} />
-      ) : null}
       <div className={"post-container convo-bg-" + groupInfo.color}>
         <div className="post-top">
           <div className="post-topinfo">
@@ -32,14 +27,7 @@ const Post = (props) => {
           <div className="post-maintext">{text}</div>
         </div>
         <div className="post-bottom">
-          <div className="post-latest-comment">
-            {latestComment
-              ? latestComment.username + ": " + latestComment.text
-              : null}
-          </div>
-          <div className="post-viewcomments" onClick={() => setOpen(true)}>
-            {"View Messages (" + commentCount + ")"}
-          </div>
+          <Comments id={id} groupInfo={groupInfo} />
         </div>
       </div>
     </>
