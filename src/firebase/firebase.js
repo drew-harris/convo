@@ -19,11 +19,11 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const remoteConfig = firebase.remoteConfig();
 
-remoteConfig.settings.minimumFetchIntervalMillis = 360000;
+remoteConfig.settings.minimumFetchIntervalMillis = 90000;
 
 remoteConfig.defaultConfig = {
   hype_message: "Welcome",
-  app_enabled: true,
+  app_enabled: false,
 };
 
 remoteConfig

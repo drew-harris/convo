@@ -1,4 +1,5 @@
 const allowEmulation = true;
+const SHOW_INSTALL_POPUP = true;
 
 const colorNames = [
   "red",
@@ -17,4 +18,4 @@ const colorNames = [
   "pinkred",
 ];
 
-export { allowEmulation, colorNames };
+export { allowEmulation, colorNames, SHOW_INSTALL_POPUP };
