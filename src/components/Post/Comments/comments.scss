@@ -4,7 +4,7 @@
 .comments {
   position: fixed;
   bottom: 0;
-  height: 50vh;
+  max-height: 50vh;
   left: 0px;
   right: 0px;
   padding: 10px;
@@ -13,6 +13,8 @@
   background-color: $convo-light-gray;
   z-index: 900;
   color: black;
+  display: flex;
+  flex-direction: column;
 }
 
 .comments-headerbar {
@@ -23,10 +25,6 @@
 }
 
 .comments-add-container {
-  position: absolute;
-  bottom: 10px;
-  left: 12px;
-  right: 12px;
   border-radius: 8px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
@@ -59,4 +57,51 @@
   height: 90vh;
   width: 100%;
   z-index: 400;
+}
+
+.comments-bubblecontainer {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.bubble {
+  max-width: 80%;
+}
+
+.bubble-content {
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.bubble-mine {
+  align-self: flex-end;
+  color: white;
+  text-align: right;
+}
+
+.bubble-other {
+  background-color: white;
+
+}
+
+.bubble-username {
+  font-weight: 700;
+  color: gray;
+  margin-left: 5px;
+}
+
+.bubble-text {
+  font-weight: 600;
+}
+
+.post-latestcomment {
+  margin-bottom: 12px;
+  overflow: hidden;
 }

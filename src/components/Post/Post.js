@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./post.scss";
 import { Comments } from "./Comments/Comments";
+import { useHistory } from "react-router";
 
 const Post = (props) => {
   const {
@@ -13,6 +14,11 @@ const Post = (props) => {
     latestComment,
     commentCount,
   } = props.data;
+  const history = useHistory();
+
+  const redirect = () => {
+    history.replace("/groups/" + groupInfo.groupId);
+  };
 
   return (
     <>
@@ -20,7 +26,9 @@ const Post = (props) => {
         <div className="post-top">
           <div className="post-topinfo">
             <div className="post-author">{creator}</div>
-            <div className="post-grouplink">{groupInfo.groupName}</div>
+            <div className="post-grouplink" onClick={redirect}>
+              {groupInfo.groupName}
+            </div>
             <div className="post-timestamp">6hr</div>
           </div>
 
