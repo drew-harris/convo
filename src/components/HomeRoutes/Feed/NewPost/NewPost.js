@@ -48,6 +48,8 @@ const NewPost = (props) => {
         creator: auth.currentUser.displayName,
         created: timestamp(),
         text: postText,
+        lastComment: null,
+        commentCount: 0,
       });
 
       // Close the add post component
@@ -83,7 +85,6 @@ const NewPost = (props) => {
   }, []);
 
   if (open) {
-    //TODO: Make new post appear center
     return (
       <div className="newpost-container">
         <span className="newpost-titleandclose">

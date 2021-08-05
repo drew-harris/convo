@@ -1,0 +1,107 @@
+@import "../../../variables";
+@import "../../../backgroundcolors";
+
+.comments {
+  position: fixed;
+  bottom: 0;
+  max-height: 50vh;
+  left: 0px;
+  right: 0px;
+  padding: 10px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  background-color: $convo-light-gray;
+  z-index: 900;
+  color: black;
+  display: flex;
+  flex-direction: column;
+}
+
+.comments-headerbar {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comments-add-container {
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  background-color: white;
+
+}
+
+.comments-add-textfield {
+  flex-grow: 1;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.comments-add-sendbutton {
+  padding-left: 8px;
+  padding-right: 8px;
+  height: 100%;
+  color: #3B82F6;
+}
+
+.comments-overlay-clickoff {
+  position: fixed;
+  background-color: black;
+  opacity: 0.2;
+  top: 0px;
+  left: 0px;
+  height: 90vh;
+  width: 100%;
+  z-index: 400;
+}
+
+.comments-bubblecontainer {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+  margin-bottom: 10px;
+  padding-top: 10px;
+}
+
+.bubble {
+  max-width: 80%;
+}
+
+.bubble-content {
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px;
+  word-break: break-all;
+  overflow-wrap: anywhere;
+}
+
+.bubble-mine {
+  align-self: flex-end;
+  color: white;
+  text-align: right;
+}
+
+.bubble-other {
+  background-color: white;
+
+}
+
+.bubble-username {
+  font-weight: 700;
+  color: gray;
+  margin-left: 5px;
+}
+
+.bubble-text {
+  font-weight: 600;
+}
+
+.post-latestcomment {
+  margin-bottom: 12px;
+  overflow: hidden;
+}
