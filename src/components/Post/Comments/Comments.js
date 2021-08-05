@@ -45,6 +45,7 @@ const Comments = (props) => {
         text: commentText,
         created: timestamp(),
       });
+      setCommentText("");
     } catch (err) {
       /* handle error */
       console.err(err.message);
@@ -63,8 +64,9 @@ const Comments = (props) => {
           setData(comments);
           console.log(comments);
         });
+      return unsubscribe;
     };
-    initial();
+    const unsubscribe = await initial();
   };
 
   useEffect(() => {

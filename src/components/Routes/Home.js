@@ -26,8 +26,6 @@ const Home = () => {
     });
   }, [history]);
   const appEnabled = remoteConfig.getBoolean("app_enabled");
-  console.log(appEnabled);
-  console.log(remoteConfig.lastFetchStatus);
 
   if (!userLoaded) {
     return null;
