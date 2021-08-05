@@ -11,7 +11,7 @@
 }
 
 .post-top {
-  padding: 10px;
+  padding-top: 10px;
 }
 
 .post-topinfo {
@@ -43,13 +43,16 @@
 
 .post-maintext {
   margin: 10px;
-  font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 16px;
 }
 
 .post-viewcomments {
   width: 100%;
   text-align: center;
   text-decoration: underline;
+  font-size: 14px;
 }
 
 .post-bottom {

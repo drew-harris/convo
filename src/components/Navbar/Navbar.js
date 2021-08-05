@@ -16,11 +16,12 @@ const Navbar = () => {
     console.log(location);
   });
 
-  let chatIconClass = "";
-  let groupsIconClass = "";
+  let chatIconClass = "navbar-icon-container";
+  let groupsIconClass = "navbar-icon-container";
 
   if (location.pathname === "/") {
     chatIconClass = "navbar-icon-container navbar-icon-active";
+    groupsIconClass = "navbar-icon-container";
   } else if (location.pathname === "/groups") {
     chatIconClass = "navbar-icon-container";
     groupsIconClass = "navbar-icon-container navbar-icon-active";
