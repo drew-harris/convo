@@ -3,14 +3,14 @@ const SHOW_INSTALL_POPUP = false;
 
 const colorNames = [
   "red",
+  "redorange",
   "orange",
-  "mustard",
   "yellow",
   "green",
-  "mint",
   "bluegreen",
   "cyan",
   "skyblue",
+  "blue",
   "deepblue",
   "purpleblue",
   "purple",
