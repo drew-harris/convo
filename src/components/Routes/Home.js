@@ -12,6 +12,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { GroupView } from "../HomeRoutes/GroupView/GroupView";
 import { HypeScreen } from "./HypeScreen/HypeScreen";
 import { InstallPopup } from "../Misc/InstallPopup";
+import { ColorTest } from "../Misc/ColorTest";
 
 const Home = () => {
   let history = useHistory();
@@ -49,6 +50,7 @@ const Home = () => {
           <Switch>
             <Route path="/groups/:id" component={GroupView} />
             <Route path="/groups" component={Groups} />
+            <Route path="/colors" component={ColorTest} />
             <Route exact path="/" component={Feed} />
           </Switch>
         </Router>

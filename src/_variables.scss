@@ -3,12 +3,13 @@ $tw-green-500:     #10b981;
 $tw-gray-100:      #f3f4f6;
 
 $convo-black:      #000000;
-$convo-red:        #f21b1b;
-$convo-orange:     #ef6f44;
-$convo-mustard:    #ef9c44;
-$convo-yellow:     #F59E0B;
+$convo-red:        #f21b1b; // ✓
+$convo-orange:     #f2711b; // ✓
+$convo-redorange:  #f2541b;
+$convo-mustard:    #ef9c44; // X
+$convo-yellow:     #f2e41b; // X
 $convo-green:      #11ba41;
-$convo-mint:       #44ef77;
+$convo-mint:       #44ef77; // X
 $convo-bluegreen:  #44efad;
 $convo-cyan:       #11b5ba;
 $convo-skyblue:    #44b9ef;

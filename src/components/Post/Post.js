@@ -35,6 +35,8 @@ const Post = (props) => {
     }
   }
 
+  // GIT: SHOWING COLOR FOR DEBUG ONLY
+
   return (
     <>
       <div className={"post-container convo-bg-" + groupInfo.color}>
@@ -47,7 +49,7 @@ const Post = (props) => {
             <div className="post-timestamp">{ageString}</div>
           </div>
 
-          <div className="post-maintext">{text}</div>
+          <div className="post-maintext">{groupInfo.color}</div>
         </div>
         <div className="post-bottom">
           <Comments id={id} groupInfo={groupInfo} />
