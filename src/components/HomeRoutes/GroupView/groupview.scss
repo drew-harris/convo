@@ -1,8 +1,11 @@
 @import '../../../variables';
 @import '../../../backgroundcolors';
+@import '../../../animations';
 
 .groupview-screen {
   padding: 26px;
+  animation-duration: 0.15s;
+  animation-name: fadein;
 }
 
 .groupview-titleheader {
