@@ -19,7 +19,7 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const remoteConfig = firebase.remoteConfig();
 
-remoteConfig.settings.minimumFetchIntervalMillis = 90000;
+remoteConfig.settings.minimumFetchIntervalMillis = 9000;
 
 remoteConfig.defaultConfig = {
   hype_message: "8/19",
