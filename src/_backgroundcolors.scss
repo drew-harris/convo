@@ -1,10 +1,15 @@
 @import './variables';
+
 .convo-bg-black {
   background-color: $convo-black;
 }
 
 .convo-bg-red {
   background-color: $convo-red;
+}
+
+.convo-bg-redorange {
+  background-color: $convo-redorange;
 }
 
 .convo-bg-orange {
@@ -37,6 +42,10 @@
 
 .convo-bg-skyblue {
   background-color: $convo-skyblue;
+}
+
+.convo-bg-blue {
+  background-color: $convo-blue;
 }
 
 .convo-bg-deepblue {
