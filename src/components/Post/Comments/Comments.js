@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { db, auth, timestamp } from "../../../firebase/firebase";
+import { CSSTransition } from "react-transition-group";
 import "./comments.scss";
 
 const Bubble = ({ username, text, created, color }) => {
@@ -135,36 +136,38 @@ const Comments = (props) => {
               setOpen(false);
             }}
           ></div>
-          <div className="comments">
-            <div className="comments-headerbar">
-              Messages
-              <div
-                className="comments-closebutton"
-                onClick={() => {
-                  setOpen(false);
-                }}
-              >
-                <FontAwesomeIcon icon={faTimes} />
-              </div>
-            </div>
-            <div className="comments-bubblecontainer">{bubbles}</div>
-            <div className="comments-add-container">
-              <input
-                className="comments-add-textfield"
-                type="text"
-                placeholder="Add a comment"
-                value={commentText}
-                onChange={(event) => setCommentText(event.target.value)}
-              />
-              {commentText.length > 1 ? (
-                <div className="comments-add-sendbutton" onClick={addComment}>
-                  Send
-                </div>
-              ) : null}
-            </div>
-          </div>
         </>
       ) : null}
+      <CSSTransition in={open} timeout={5000} classNames="comments-trans">
+        <div className="comments">
+          <div className="comments-headerbar">
+            Messages
+            <div
+              className="comments-closebutton"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </div>
+          </div>
+          <div className="comments-bubblecontainer">{bubbles}</div>
+          <div className="comments-add-container">
+            <input
+              className="comments-add-textfield"
+              type="text"
+              placeholder="Add a comment"
+              value={commentText}
+              onChange={(event) => setCommentText(event.target.value)}
+            />
+            {commentText.length > 1 ? (
+              <div className="comments-add-sendbutton" onClick={addComment}>
+                Send
+              </div>
+            ) : null}
+          </div>
+        </div>
+      </CSSTransition>
     </>
   );
 };
