@@ -86,7 +86,13 @@ const NewPost = (props) => {
 
   if (open) {
     return (
-      <div className="newpost-container">
+      <div
+        className={
+          open
+            ? "newpost-container newpost-open"
+            : "newpost-container newpost-closed"
+        }
+      >
         <span className="newpost-titleandclose">
           New Post
           <div className="newpost-closeicon" onClick={() => setOpen(false)}>

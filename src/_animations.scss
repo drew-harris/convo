@@ -1,0 +1,26 @@
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100;
+  }
+}
+
+@keyframes slideinright {
+  from {
+    transform: translateX(100vw);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes slideinleft {
+  from {
+    transform: translateX(-100vw);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}

@@ -1,9 +1,13 @@
 @import '../../../variables';
 @import '../../../backgroundcolors';
+@import '../../../animations';
 
 .groups-content {
   margin: 26px;
+  animation-duration: 0.15s;
+  animation-name: fadein;
 }
+
 
 .groups-header {
   font-size: 24px;
