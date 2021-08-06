@@ -1,6 +1,7 @@
 import React from "react";
 import "../groupview.scss";
 import "./addmemberoverlay.scss";
+import { CSSTransition } from "react-transition-group";
 import { MemberPill } from "../MemberPill";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -16,8 +17,12 @@ const AddMemberOverlay = (props) => {
       />
     );
   });
-  if (props.open) {
-    return (
+  return (
+    <CSSTransition
+      in={props.open}
+      timeout={5000}
+      classNames="addmemberoverlay-t"
+    >
       <div className="addmemberoverlay-container">
         <div className="addmemberoverlay-header">
           Edit Users
@@ -30,10 +35,8 @@ const AddMemberOverlay = (props) => {
         </div>
         <div className="addmemberoverlay-pillcontainer">{memberPills}</div>
       </div>
-    );
-  } else {
-    return null;
-  }
+    </CSSTransition>
+  );
 };
 
 export { AddMemberOverlay };

@@ -16,7 +16,45 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0px -8px 8px rgba(0, 0, 0, 0.15);
+  //Animation
+  transform: translateY(40vh);
+  display: none;
 }
+
+.comments-trans-enter {
+  transform: translateY(40vh);
+  display: block;
+
+}
+
+.comments-trans-enter-active {
+  display: block;
+  transition: transform 0.1s ease-out;
+  transform: translateY(0px);
+}
+
+.comments-trans-enter-done {
+  display: block;
+  transform: translateY(0px);
+}
+
+.comments-trans-exit {
+  transform: translateY(0px);
+  display: block;
+
+}
+
+.comments-trans-exit-active {
+  display: block;
+  transition: transform 0.1s ease-out;
+  transform: translateY(800px);
+}
+
+.comments-trans-exit-done {
+  display: none;
+  transform: translateY(0px);
+}
+
 
 .comments-headerbar {
   font-size: 24px;
