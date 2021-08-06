@@ -23,6 +23,7 @@ const AddGroup = () => {
         });
         console.log(docref.id);
         setOpen(false);
+        setNameInput("");
       }
     } catch (e) {
       /* handle error */

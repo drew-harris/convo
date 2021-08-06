@@ -28,7 +28,7 @@ const Post = (props) => {
       console.log(difference);
     } else if (Math.floor(difference / 60) > 0) {
       ageString = Math.floor(difference / 60) + "h";
-    } else if (Math.floor(difference)) {
+    } else if (Math.floor(difference) > 0) {
       ageString = Math.floor(difference) + "m";
     } else {
       ageString = "";

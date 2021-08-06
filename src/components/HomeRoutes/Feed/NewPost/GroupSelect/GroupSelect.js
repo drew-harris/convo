@@ -33,7 +33,7 @@ const GroupSelect = (props) => {
   return (
     <div className="groupselect-container">
       <div className="groupselect-top-container" onClick={() => setOpen(!open)}>
-        {props.selected ? props.selected.name : "Groups"}
+        {props.selected ? props.selected.name : "Select Group"}
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
       {open ? <div className="groupselect-items-container">{items}</div> : null}
