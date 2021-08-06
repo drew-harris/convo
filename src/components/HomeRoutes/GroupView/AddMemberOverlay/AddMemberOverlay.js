@@ -20,7 +20,7 @@ const AddMemberOverlay = (props) => {
   return (
     <CSSTransition
       in={props.open}
-      timeout={5000}
+      timeout={100}
       classNames="addmemberoverlay-t"
     >
       <div className="addmemberoverlay-container">

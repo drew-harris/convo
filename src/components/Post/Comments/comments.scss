@@ -4,7 +4,6 @@
 .comments {
   position: fixed;
   bottom: 0;
-  max-height: 80vh;
   left: 0px;
   right: 0px;
   padding: 10px;
@@ -69,7 +68,6 @@
   display: flex;
   align-items: center;
   background-color: white;
-
 }
 
 .comments-add-textfield {
@@ -103,6 +101,7 @@
   margin-bottom: 10px;
   padding-top: 10px;
   align-items: flex-start;
+  max-height: 60vh;
 }
 
 .bubble {

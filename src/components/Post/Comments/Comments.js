@@ -138,7 +138,7 @@ const Comments = (props) => {
           ></div>
         </>
       ) : null}
-      <CSSTransition in={open} timeout={5000} classNames="comments-trans">
+      <CSSTransition in={open} timeout={100} classNames="comments-trans">
         <div className="comments">
           <div className="comments-headerbar">
             Messages
