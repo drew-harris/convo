@@ -1,10 +1,15 @@
 @import './variables';
+
 .convo-bg-black {
   background-color: $convo-black;
 }
 
 .convo-bg-red {
   background-color: $convo-red;
+}
+
+.convo-bg-redorange {
+  background-color: $convo-redorange;
 }
 
 .convo-bg-orange {
@@ -39,6 +44,10 @@
   background-color: $convo-skyblue;
 }
 
+.convo-bg-blue {
+  background-color: $convo-blue;
+}
+
 .convo-bg-deepblue {
   background-color: $convo-deepblue;
 }
@@ -68,6 +77,11 @@ background-size: 1800% 1800%;
 -z-animation: rainbow 18s ease infinite;
 -o-animation: rainbow 18s ease infinite;
   animation: rainbow 18s ease infinite;
+
+}
+
+.convo-bg-black {
+  background-color: black;
 }
 
 @-webkit-keyframes rainbow {

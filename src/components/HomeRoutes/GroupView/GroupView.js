@@ -8,6 +8,7 @@ import {
 } from "../../../firebase/firebase";
 import { MemberPill } from "./MemberPill";
 import { AddMemberOverlay } from "./AddMemberOverlay/AddMemberOverlay";
+import { PostsView } from "../../PostsView/PostsView";
 import "./groupview.scss";
 
 const GroupView = (props) => {
@@ -102,6 +103,7 @@ const GroupView = (props) => {
           color="white"
           open={open}
           handleTouch={handleTouch}
+          handleClose={() => setOpen(false)}
         />
         <div className="groupview-screen">
           <div className="groupview-titleheader">{groupData.name}</div>
@@ -123,6 +125,9 @@ const GroupView = (props) => {
             ) : null}
           </div>
           <div className="groupview-pillcontainer">{memberPills}</div>
+          <div className="groupview-subheader">Posts</div>
+
+          <PostsView id={id} />
         </div>
       </>
     );

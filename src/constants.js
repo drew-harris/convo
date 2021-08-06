@@ -1,15 +1,16 @@
-const allowEmulation = true;
+const allowEmulation = false;
+const SHOW_INSTALL_POPUP = false;
 
 const colorNames = [
   "red",
+  "redorange",
   "orange",
-  "mustard",
   "yellow",
   "green",
-  "mint",
   "bluegreen",
   "cyan",
   "skyblue",
+  "blue",
   "deepblue",
   "purpleblue",
   "purple",
@@ -17,4 +18,4 @@ const colorNames = [
   "pinkred",
 ];
 
-export { allowEmulation, colorNames };
+export { allowEmulation, colorNames, SHOW_INSTALL_POPUP };

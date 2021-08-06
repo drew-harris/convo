@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { db, auth } from "../../../../firebase/firebase";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./addgroup.scss";
 
 const AddGroup = () => {
@@ -23,6 +25,7 @@ const AddGroup = () => {
         });
         console.log(docref.id);
         setOpen(false);
+        setNameInput("");
       }
     } catch (e) {
       /* handle error */
@@ -36,8 +39,19 @@ const AddGroup = () => {
 
   if (open) {
     return (
-      <div className="addgroup-container">
-        <div>New Group</div>
+      <div
+        className={
+          open
+            ? "addgroup-container addgroup-container-open"
+            : "addgroup-container"
+        }
+      >
+        <span className="addgroup-titleandclose">
+          New Group
+          <div className="addgroup-closeicon" onClick={() => setOpen(false)}>
+            <FontAwesomeIcon icon={faTimes} />
+          </div>
+        </span>
 
         <input
           type="text"

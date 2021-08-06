@@ -1,6 +1,8 @@
 * {
   font-family: Inter, sans-serif;
   border: none;
+  box-sizing: border-box;
+  z-index: inherit;
 
 }
 
@@ -10,5 +12,5 @@ div.firebase-emulator-warning {
   width: 30px !important;
   overflow: hidden;
   background-color: lime !important;
-  //display: none;
+  display: none;
 }
