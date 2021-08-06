@@ -3,7 +3,6 @@
 
 .addmemberoverlay-container {
   position: fixed;
-  height: 30vh;
   bottom: 50px;
   right: 0px;
   left: 0px;
@@ -26,10 +25,30 @@
 }
 
 .addmemberoverlay-pillcontainer {
+  max-height: 50vh;
+  padding-bottom: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
+  overflow-y: scroll;
 }
+
+.addmemberoverlay-filterinput {
+  border-radius: 8px;
+  padding: 6px 10px 6px 10px;
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.11);
+}
+
+
+
+
+
+
 
 .addmemberoverlay-t-enter {
   transform: translateY(40vh);

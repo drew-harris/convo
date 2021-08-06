@@ -38,6 +38,7 @@ const Home = () => {
 
   console.log(remoteConfig.getBoolean("app_enabled"));
   const appEnabled = remoteConfig.getBoolean("app_enabled");
+  console.log("APP ENABLED: ", appEnabled);
 
   if (!userLoaded) {
     return null;
