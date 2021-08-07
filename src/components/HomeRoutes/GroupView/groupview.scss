@@ -58,14 +58,13 @@
   border-radius: 14px;
   font-size: 14px;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
-  color: black;
+  color: var(--text-color);
 }
 
 .pillcolor-white {
-  background-color: white;
-
+  background-color: var(--main-pill);
 }
 
 .pillcolor-gray {
-  background-color: $convo-light-gray;
+  background-color: var(--main-pill);
 }
