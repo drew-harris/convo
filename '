@@ -16,20 +16,14 @@
 
 .post-topinfo {
   display: flex;
-  justify-content: space-between;
-  margin: 0px 10px 0px 10px;
-}
-
-.post-author, .post-timestamp {
-  flex-grow: 1;
-  flex-basis: 0;
 }
 
 .post-author {
   font-size: 14px;
   font-weight: 700;
-  text-overflow: ellipsis;
-  overflow: hidden;
+  position: absolute;
+  left: 10px;
+  border: 1px solid red;
 }
 
 .post-grouplink {
@@ -37,16 +31,17 @@
   font-weight: 700;
   justify-self: center;
   text-decoration: underline;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  max-width: 50%;
+  border: 1px solid blue;
+  margin: auto;
 }
 
 .post-timestamp {
   font-size: 14px;
   font-weight: 700;
-  text-align: right;
+  justify-self: flex-end;
+  position: absolute;
+  right: 10px;
+  border: 1px solid green;
 }
 
 .post-maintext {

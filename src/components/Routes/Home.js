@@ -46,7 +46,7 @@ const Home = () => {
     return (
       <>
         {showInstallPopup ? <InstallPopup /> : null}
-        <div className="transition-background">testing</div>
+        <div className="transition-background"></div>
         <Router>
           <Switch>
             <Route exact path="/groups" component={Groups} />
