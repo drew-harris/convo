@@ -1,9 +1,11 @@
+@import "../../variables";
+
 .navbar {
-  background-color: #F1F1F1;
+  background-color: var(--bar-background);
   position: fixed;
   bottom: 0;
   width: 100vw;
-  color: #B6B6B6;
+  color: var(--faded-icon);
   
   // Maybe remove
   height: 50px;
@@ -11,6 +13,7 @@
   justify-content: space-around;
   align-items: center;
   font-size: 25px;
+  z-index: 800;
 }
 
 .navbar-icon-container {
@@ -20,5 +23,5 @@
 }
 
 .navbar-icon-active {
-  color: black;
+  color: var(--icon-active);
 }

@@ -9,7 +9,6 @@
   padding: 10px;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  background-color: $convo-light-gray;
   z-index: 900;
   color: black;
   display: flex;
@@ -18,6 +17,8 @@
   //Animation
   transform: translateY(40vh);
   display: none;
+  background-color: var(--overlay);
+  color: var(--text-color);
 }
 
 .comments-trans-enter {
@@ -67,7 +68,7 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
-  background-color: white;
+  background-color: var(--text-field-bg);
 }
 
 .comments-add-textfield {
@@ -76,6 +77,8 @@
   padding: 10px;
   font-size: 14px;
   font-weight: 700;
+  background-color: var(--text-field-bg);
+  color: var(--text-color);
 } 
 
 .comments-add-sendbutton {
@@ -91,9 +94,9 @@
   opacity: 0.2;
   top: 0px;
   left: 0px;
-  height: 90vh;
+  height: 100vh;
   width: 100%;
-  z-index: 900;
+  z-index: 200;
 }
 
 .comments-bubblecontainer {
@@ -125,7 +128,7 @@
 }
 
 .bubble-other {
-  background-color: white;
+  background-color: var(--bubble);
 }
 
 .bubble-username {

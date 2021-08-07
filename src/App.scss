@@ -1,9 +1,22 @@
+@import "./variables";
 * {
   font-family: Inter, sans-serif;
   border: none;
   box-sizing: border-box;
   z-index: inherit;
+}
 
+html, body {
+  background-color: var(--background-color);
+}
+
+.transition-background {
+  background-color: var(--background-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 div.firebase-emulator-warning {

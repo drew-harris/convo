@@ -46,10 +46,11 @@ const Home = () => {
     return (
       <>
         {showInstallPopup ? <InstallPopup /> : null}
+        <div className="transition-background">testing</div>
         <Router>
           <Switch>
-            <Route path="/groups/:id" component={GroupView} />
-            <Route path="/groups" component={Groups} />
+            <Route exact path="/groups" component={Groups} />
+            <Route exact path="/groups/:id" component={GroupView} />
             <Route exact path="/" component={Feed} />
           </Switch>
         </Router>
