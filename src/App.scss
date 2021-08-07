@@ -10,6 +10,15 @@ html, body {
   background-color: var(--background-color);
 }
 
+.transition-background {
+  background-color: var(--background-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
 div.firebase-emulator-warning {
   //top: 0;
   height: 30px;
