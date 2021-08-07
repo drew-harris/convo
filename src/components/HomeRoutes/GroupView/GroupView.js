@@ -83,7 +83,7 @@ const GroupView = (props) => {
   };
 
   if (groupData === null) {
-    return null;
+    return <div className="groupview-screen"></div>;
   } else {
     const memberPills = groupData.members.map((name) => {
       return (
@@ -97,7 +97,7 @@ const GroupView = (props) => {
     });
 
     return (
-      <>
+      <div className="groupview-screen">
         <AddMemberOverlay
           names={excluded || []}
           color="white"
@@ -105,31 +105,29 @@ const GroupView = (props) => {
           handleTouch={handleTouch}
           handleClose={() => setOpen(false)}
         />
-        <div className="groupview-screen">
-          <div className="groupview-titleheader">{groupData.name}</div>
-          <div className="groupview-subheader">
-            <div className="groupview-conditionalcontainer">
-              Members
-              {open ? (
-                <div className="groupview-removewarning">(Tap to remove)</div>
-              ) : null}
-            </div>
-
-            {groupData.owners.includes(auth.currentUser.displayName) ? (
-              <div
-                className="groupview-editmembersbutton"
-                onClick={() => setOpen(!open)}
-              >
-                EDIT MEMBERS
-              </div>
+        <div className="groupview-titleheader">{groupData.name}</div>
+        <div className="groupview-subheader">
+          <div className="groupview-conditionalcontainer">
+            Members
+            {open ? (
+              <div className="groupview-removewarning">(Tap to remove)</div>
             ) : null}
           </div>
-          <div className="groupview-pillcontainer">{memberPills}</div>
-          <div className="groupview-subheader">Posts</div>
 
-          <PostsView id={id} />
+          {groupData.owners.includes(auth.currentUser.displayName) ? (
+            <div
+              className="groupview-editmembersbutton"
+              onClick={() => setOpen(!open)}
+            >
+              EDIT MEMBERS
+            </div>
+          ) : null}
         </div>
-      </>
+        <div className="groupview-pillcontainer">{memberPills}</div>
+        <div className="groupview-subheader">Posts</div>
+
+        <PostsView id={id} />
+      </div>
     );
   }
 };

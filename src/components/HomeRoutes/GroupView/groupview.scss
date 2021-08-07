@@ -3,9 +3,14 @@
 @import '../../../animations';
 
 .groupview-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-color);
   padding: 26px;
-  animation-duration: 0.15s;
-  animation-name: fadein;
+  color: var(--text-color);
 }
 
 .groupview-titleheader {
@@ -53,6 +58,7 @@
   border-radius: 14px;
   font-size: 14px;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.2);
+  color: black;
 }
 
 .pillcolor-white {

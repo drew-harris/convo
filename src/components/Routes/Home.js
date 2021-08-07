@@ -48,8 +48,8 @@ const Home = () => {
         {showInstallPopup ? <InstallPopup /> : null}
         <Router>
           <Switch>
-            <Route path="/groups/:id" component={GroupView} />
-            <Route path="/groups" component={Groups} />
+            <Route exact path="/groups" component={Groups} />
+            <Route exact path="/groups/:id" component={GroupView} />
             <Route exact path="/" component={Feed} />
           </Switch>
         </Router>
