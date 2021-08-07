@@ -26,14 +26,14 @@
 }
 
 .post-author {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
 .post-grouplink {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   justify-self: center;
   text-decoration: underline;
@@ -44,7 +44,7 @@
 }
 
 .post-timestamp {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   text-align: right;
 }
@@ -60,11 +60,12 @@
   width: 100%;
   text-align: center;
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .post-bottom {
    background-color: rgba(0, 0, 0, 0.2);
    padding: 8px;
-   border-radius: 8px;
+   border-bottom-left-radius: 8px;
+   border-bottom-right-radius: 8px;
 }
