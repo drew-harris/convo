@@ -1,0 +1,36 @@
+@import "../../../../variables";
+
+.deletegroup-icon-container {
+  position: absolute;
+  right: 26px;
+  top: 26px;
+}
+
+.deletegroup-overlay-clickoff {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.25);
+  display: grid;
+  place-items: center;
+  z-index: 800;
+}
+
+.deletegroup-overlay-box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  padding: 26px;
+  border-radius: 9px;
+  border: 1px solid red;
+  z-index: 900;
+}
+
+.deletegroup-button-container {
+  width: 100%;
+  border: 2px solid blue;
+  display: flex;
+  justify-content: flex-end;
+}

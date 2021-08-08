@@ -8,6 +8,7 @@ import {
 } from "../../../firebase/firebase";
 import { MemberPill } from "./MemberPill";
 import { AddMemberOverlay } from "./AddMemberOverlay/AddMemberOverlay";
+import { DeleteGroup } from "./DeleteGroup/DeleteGroup";
 import { PostsView } from "../../PostsView/PostsView";
 import "./groupview.scss";
 
@@ -105,6 +106,9 @@ const GroupView = (props) => {
           handleTouch={handleTouch}
           handleClose={() => setOpen(false)}
         />
+        {groupData.owners.includes(auth.currentUser.displayName) ? (
+          <DeleteGroup id={id} />
+        ) : null}
         <div className="groupview-titleheader">{groupData.name}</div>
         <div className="groupview-subheader">
           <div className="groupview-conditionalcontainer">
