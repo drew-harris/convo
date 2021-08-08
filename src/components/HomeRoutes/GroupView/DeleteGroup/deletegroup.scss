@@ -1,4 +1,5 @@
 @import "../../../../variables";
+@import "../../../../animations";
 
 .deletegroup-icon-container {
   position: absolute;
@@ -24,13 +25,26 @@
   background-color: var(--background-color);
   padding: 26px;
   border-radius: 9px;
-  border: 1px solid red;
   z-index: 900;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  animation-duration: 0.15s;
+  animation-name: slideUp;
 }
 
 .deletegroup-button-container {
   width: 100%;
-  border: 2px solid blue;
   display: flex;
   justify-content: flex-end;
+  gap: 26px;
+  margin-top: 30px;
+}
+
+.deletegroup-button {
+  padding: 8px;
+  border-radius: 4px;;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  font-weight: 700;
+  font-size: 14px;
+
+
 }
