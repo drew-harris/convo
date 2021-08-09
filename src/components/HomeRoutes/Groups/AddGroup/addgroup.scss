@@ -9,8 +9,7 @@
   text-align: center;
   margin-top: 10px; padding-left: 16px;
   padding-right: 16px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.2));
-
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   //For open state
   display: flex;
   flex-direction: column;
