@@ -6,14 +6,12 @@
   bottom: 0;
   width: 100vw;
   color: var(--faded-icon);
-  
-  // Maybe remove
   height: 50px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   font-size: 25px;
-  z-index: 800;
+  z-index: 700;
 }
 
 .navbar-icon-container {

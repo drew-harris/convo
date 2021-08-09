@@ -8,6 +8,7 @@ import {
 } from "../../../firebase/firebase";
 import { MemberPill } from "./MemberPill";
 import { AddMemberOverlay } from "./AddMemberOverlay/AddMemberOverlay";
+import { DeleteGroup } from "./DeleteGroup/DeleteGroup";
 import { PostsView } from "../../PostsView/PostsView";
 import "./groupview.scss";
 
@@ -32,16 +33,20 @@ const GroupView = (props) => {
       console.log(allUsers);
 
       const unsub = ref.onSnapshot((copy) => {
-        const data = copy.data();
-        console.log(data);
-        setGroupData(data);
+        try {
+          const data = copy.data();
+          console.log(data);
+          setGroupData(data);
 
-        const excluded = allUsers.filter(
-          (user) => !data.members.includes(user)
-        );
-        setExcluded(excluded);
+          const excluded = allUsers.filter(
+            (user) => !data.members.includes(user)
+          );
+          setExcluded(excluded);
 
-        console.log(excluded);
+          console.log(excluded);
+        } catch (err) {
+          console.error(err.message);
+        }
       });
     };
     initial();
@@ -105,6 +110,9 @@ const GroupView = (props) => {
           handleTouch={handleTouch}
           handleClose={() => setOpen(false)}
         />
+        {groupData.owners.includes(auth.currentUser.displayName) ? (
+          <DeleteGroup id={id} />
+        ) : null}
         <div className="groupview-titleheader">{groupData.name}</div>
         <div className="groupview-subheader">
           <div className="groupview-conditionalcontainer">

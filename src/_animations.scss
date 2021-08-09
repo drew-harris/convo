@@ -16,6 +16,15 @@
   }
 }
 
+@keyframes slideUp {
+  from {
+    transform: translateY(100vh);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
 @keyframes slideinleft {
   from {
     transform: translateX(-100vw);

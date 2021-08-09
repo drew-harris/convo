@@ -22,6 +22,9 @@
   color: var(--text-color);
 }
 
+.groups-header-other {
+  margin-top: 28px;
+}
 
 .groups-linkcontainer {
   display: grid;
@@ -39,7 +42,6 @@
 
 .grouplink-container {
   margin-top: 10px;
-  margin-bottom: 28px;
   height: 70px;
   border-radius: 8px;
   display: flex;

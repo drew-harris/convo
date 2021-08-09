@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/functions";
 import "firebase/firestore";
 import "firebase/remote-config";
 import { allowEmulation } from "../constants";
@@ -18,6 +19,7 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 const remoteConfig = firebase.remoteConfig();
+const functions = firebase.functions();
 
 remoteConfig.settings.minimumFetchIntervalMillis = 9000;
 
@@ -48,6 +50,15 @@ if (window.location.hostname === "localhost" && allowEmulation) {
   );
   auth.useEmulator("http://localhost:9099");
   db.useEmulator("localhost", 8080);
+  functions.useEmulator("localhost", 5001);
 }
 
-export { auth, db, remoteConfig, timestamp, dbArrayUnion, dbArrayRemove };
+export {
+  auth,
+  db,
+  remoteConfig,
+  timestamp,
+  functions,
+  dbArrayUnion,
+  dbArrayRemove,
+};
