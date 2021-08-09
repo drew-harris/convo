@@ -9,3 +9,13 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
+
+const darkMode = window.localStorage.getItem("dark");
+if (!darkMode) {
+  console.log("not set theme yet");
+} else {
+  if (darkMode?.length === 4) {
+    var element = document.getElementById("root");
+    element.classList.add("theme-dark");
+  }
+}

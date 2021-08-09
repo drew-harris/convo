@@ -4,6 +4,7 @@ import "./groups.scss";
 import { auth, db } from "../../../firebase/firebase";
 import { AddGroup } from "./AddGroup/AddGroup";
 import { GroupLink } from "./GroupLink/GroupLink";
+import { Settings } from "./Settings/Settings";
 
 const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -58,6 +59,7 @@ const Groups = () => {
   return (
     <div className="groups-screen">
       <div className="groups-content">
+        <Settings />
         <div className="groups-header">My Groups</div>
         <AddGroup />
         <div className="groups-linkcontainer">{owned}</div>
