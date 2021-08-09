@@ -110,7 +110,7 @@ const GroupView = (props) => {
           handleTouch={handleTouch}
           handleClose={() => setOpen(false)}
         />
-        {groupData.owners.includes(auth.currentUser.displayName && !open) ? (
+        {groupData.owners.includes(auth.currentUser.displayName) && !open ? (
           <DeleteGroup id={id} />
         ) : null}
         <div className="groupview-titleheader">{groupData.name}</div>

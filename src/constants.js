@@ -1,4 +1,4 @@
-const allowEmulation = true;
+const allowEmulation = false;
 const SHOW_INSTALL_POPUP = false;
 
 const colorNames = [
