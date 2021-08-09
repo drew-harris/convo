@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { db } from "../../../../firebase/firebase";
+import { db, functions } from "../../../../firebase/firebase";
 import { useHistory } from "react-router";
 import React from "react";
 import "./deletegroup.scss";
@@ -12,11 +12,11 @@ const DeleteGroup = ({ id }) => {
 
   const deleteGroup = async () => {
     try {
-      const ref = db.collection("groups").doc(id);
-      const res = await ref.update({
-        members: [],
-        owners: [],
-        viewers: [],
+      var cloudDelete = functions.httpsCallable("recursiveDelete");
+      cloudDelete({ path: id }).then((result) => {
+        // Read result of the Cloud Function.
+        var sanitizedMessage = result.data.text;
+        console.log(sanitizedMessage);
       });
       history.push("/groups");
     } catch (err) {

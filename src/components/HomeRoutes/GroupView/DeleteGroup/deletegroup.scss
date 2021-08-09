@@ -22,7 +22,7 @@
 .deletegroup-overlay-box {
   display: flex;
   flex-direction: column;
-  background-color: var(--background-color);
+  background-color: var(--overlay);
   padding: 26px;
   border-radius: 9px;
   z-index: 900;
@@ -40,6 +40,8 @@
 }
 
 .deletegroup-button {
+  background-color: var(--background-color);
+  color: var(--text-color);
   padding: 8px;
   border-radius: 4px;;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
