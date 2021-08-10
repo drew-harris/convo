@@ -14,13 +14,14 @@
   right: 0px;
   bottom: 0px;
   background-color: rgba(0, 0, 0, 0.25);
-  display: grid;
-  place-items: center;
   z-index: 800;
 }
 
 .deletegroup-overlay-box {
   display: flex;
+  margin-top: 50%;
+  margin-right: 30px;
+  margin-left: 30px;
   flex-direction: column;
   background-color: var(--overlay);
   padding: 26px;
