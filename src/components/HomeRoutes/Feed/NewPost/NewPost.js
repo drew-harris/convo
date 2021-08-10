@@ -12,7 +12,6 @@ const NewPost = (props) => {
   const [postText, setPostText] = useState("");
 
   const pickerChange = (selection) => {
-    console.log(selection);
     setSelected(selection);
   };
 
@@ -28,7 +27,6 @@ const NewPost = (props) => {
       let groupRef = db.collection("groups").doc(selected.id);
       const snap = await groupRef.get();
       const members = await snap.get("members");
-      console.log(members);
 
       let docref = db
         .collection("groups")
@@ -57,7 +55,6 @@ const NewPost = (props) => {
       setPostText("");
       setOpen(false);
     } catch (err) {
-      console.error(err.message);
       alert(err.message);
     }
   };
@@ -81,6 +78,7 @@ const NewPost = (props) => {
     } catch (err) {
       /* handle error */
       console.error(err.message);
+      alert("Could not fetch group names");
     }
   }, []);
 

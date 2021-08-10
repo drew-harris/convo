@@ -1,0 +1,54 @@
+@import "../../../../animations";
+
+.settings-master-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background-color: var(--background-color);
+  color: var(--faded-icon);
+}
+
+.settings-icon-container {
+  font-size: 18px;
+}
+
+.settings-popup-container {
+  position: absolute;
+  top: 100%;
+  right: 100%;
+  z-index: 900;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.33);
+  gap: 20px;
+  transform-origin: top right ;
+  animation-name: scaleout;
+  animation-duration: 0.1s;
+  background-color: var(--overlay);
+  color: var(--text-color);
+  width: max-content;
+}
+
+
+@keyframes scaleout {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.settings-popup-option {
+  padding: 10px;
+}
+
+.settings-popup-option:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.clickaway {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}

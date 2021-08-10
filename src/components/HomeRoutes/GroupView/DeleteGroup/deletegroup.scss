@@ -1,0 +1,53 @@
+@import "../../../../variables";
+@import "../../../../animations";
+
+.deletegroup-icon-container {
+  position: absolute;
+  right: 26px;
+  top: 26px;
+}
+
+.deletegroup-overlay-clickoff {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 800;
+}
+
+.deletegroup-overlay-box {
+  display: flex;
+  margin-top: 50%;
+  margin-right: 30px;
+  margin-left: 30px;
+  flex-direction: column;
+  background-color: var(--overlay);
+  padding: 26px;
+  border-radius: 9px;
+  z-index: 900;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  animation-duration: 0.15s;
+  animation-name: slideUp;
+}
+
+.deletegroup-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 26px;
+  margin-top: 30px;
+}
+
+.deletegroup-button {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 8px;
+  border-radius: 4px;;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  font-weight: 700;
+  font-size: 14px;
+
+
+}

@@ -3,10 +3,10 @@
 @import '../../../animations';
 
 .feed-screen {
-  margin: 16px;
   animation-duration: 0.15s;
   animation-name: fadein;
-
+  background-color: var(--background-color);
+  padding: 16px;
 }
 
 .newpost-container {

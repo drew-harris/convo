@@ -8,6 +8,7 @@ import {
 } from "../../../firebase/firebase";
 import { MemberPill } from "./MemberPill";
 import { AddMemberOverlay } from "./AddMemberOverlay/AddMemberOverlay";
+import { DeleteGroup } from "./DeleteGroup/DeleteGroup";
 import { PostsView } from "../../PostsView/PostsView";
 import "./groupview.scss";
 
@@ -29,19 +30,19 @@ const GroupView = (props) => {
         list.push(doc.data().username);
       });
       allUsers = list;
-      console.log(allUsers);
 
-      const unsub = ref.onSnapshot((copy) => {
-        const data = copy.data();
-        console.log(data);
-        setGroupData(data);
+      ref.onSnapshot((copy) => {
+        try {
+          const data = copy.data();
+          setGroupData(data);
 
-        const excluded = allUsers.filter(
-          (user) => !data.members.includes(user)
-        );
-        setExcluded(excluded);
-
-        console.log(excluded);
+          const excluded = allUsers.filter(
+            (user) => !data.members.includes(user)
+          );
+          setExcluded(excluded);
+        } catch (err) {
+          console.error(err.message);
+        }
       });
     };
     initial();
@@ -70,10 +71,8 @@ const GroupView = (props) => {
     }
     try {
       if (groupData.members.includes(name)) {
-        console.log("add");
         removeMember(name);
       } else {
-        console.log("remove");
         addMember(name);
       }
     } catch (err) {
@@ -82,8 +81,8 @@ const GroupView = (props) => {
     }
   };
 
-  if (groupData === null) {
-    return null;
+  if (!groupData) {
+    return <div className="groupview-screen"></div>;
   } else {
     const memberPills = groupData.members.map((name) => {
       return (
@@ -97,7 +96,7 @@ const GroupView = (props) => {
     });
 
     return (
-      <>
+      <div className="groupview-screen">
         <AddMemberOverlay
           names={excluded || []}
           color="white"
@@ -105,31 +104,32 @@ const GroupView = (props) => {
           handleTouch={handleTouch}
           handleClose={() => setOpen(false)}
         />
-        <div className="groupview-screen">
-          <div className="groupview-titleheader">{groupData.name}</div>
-          <div className="groupview-subheader">
-            <div className="groupview-conditionalcontainer">
-              Members
-              {open ? (
-                <div className="groupview-removewarning">(Tap to remove)</div>
-              ) : null}
-            </div>
-
-            {groupData.owners.includes(auth.currentUser.displayName) ? (
-              <div
-                className="groupview-editmembersbutton"
-                onClick={() => setOpen(!open)}
-              >
-                EDIT MEMBERS
-              </div>
+        {groupData.owners.includes(auth.currentUser.displayName) && !open ? (
+          <DeleteGroup id={id} />
+        ) : null}
+        <div className="groupview-titleheader">{groupData.name}</div>
+        <div className="groupview-subheader">
+          <div className="groupview-conditionalcontainer">
+            Members
+            {open ? (
+              <div className="groupview-removewarning">(Tap to remove)</div>
             ) : null}
           </div>
-          <div className="groupview-pillcontainer">{memberPills}</div>
-          <div className="groupview-subheader">Posts</div>
 
-          <PostsView id={id} />
+          {groupData.owners.includes(auth.currentUser.displayName) ? (
+            <div
+              className="groupview-editmembersbutton"
+              onClick={() => setOpen(!open)}
+            >
+              EDIT MEMBERS
+            </div>
+          ) : null}
         </div>
-      </>
+        <div className="groupview-pillcontainer">{memberPills}</div>
+        <div className="groupview-subheader">Posts</div>
+
+        <PostsView id={id} />
+      </div>
     );
   }
 };

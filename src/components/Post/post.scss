@@ -2,12 +2,9 @@
 @import "../../backgroundcolors";
 
 .post-container {
-  position: relative;
   max-width: 100%;
   color: white;
-
   border-radius: 8px;
-
 }
 
 .post-top {
@@ -16,29 +13,37 @@
 
 .post-topinfo {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 0px 10px 0px 10px;
+}
+
+.post-author, .post-timestamp {
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
 .post-author {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  position: absolute;
-  left: 10px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .post-grouplink {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
   justify-self: center;
   text-decoration: underline;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 50%;
 }
 
 .post-timestamp {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 700;
-  justify-self: flex-end;
-  position: absolute;
-  right: 10px;
+  text-align: right;
 }
 
 .post-maintext {
@@ -52,11 +57,12 @@
   width: 100%;
   text-align: center;
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .post-bottom {
    background-color: rgba(0, 0, 0, 0.2);
    padding: 8px;
-   border-radius: 8px;
+   border-bottom-left-radius: 8px;
+   border-bottom-right-radius: 8px;
 }

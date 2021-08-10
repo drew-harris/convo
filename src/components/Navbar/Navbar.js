@@ -1,5 +1,4 @@
 import React from "react";
-import { useEffect } from "react";
 import "./navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
@@ -11,10 +10,6 @@ import { useHistory } from "react-router";
 const Navbar = () => {
   const location = useLocation();
   const history = useHistory();
-
-  useEffect(() => {
-    console.log(location);
-  });
 
   let chatIconClass = "navbar-icon-container";
   let groupsIconClass = "navbar-icon-container";

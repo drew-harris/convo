@@ -29,14 +29,11 @@ const Home = () => {
     });
 
     if (window.matchMedia("(display-mode: standalone)").matches) {
-      console.log("installed");
     } else {
-      console.log("NEED TO INSTALL");
       setShowInstallPopup(true);
     }
   }, [history]);
 
-  console.log(remoteConfig.getBoolean("app_enabled"));
   const appEnabled = remoteConfig.getBoolean("app_enabled");
 
   if (!userLoaded) {
@@ -45,10 +42,11 @@ const Home = () => {
     return (
       <>
         {showInstallPopup ? <InstallPopup /> : null}
+        <div className="transition-background"></div>
         <Router>
           <Switch>
-            <Route path="/groups/:id" component={GroupView} />
-            <Route path="/groups" component={Groups} />
+            <Route exact path="/groups" component={Groups} />
+            <Route exact path="/groups/:id" component={GroupView} />
             <Route exact path="/" component={Feed} />
           </Switch>
         </Router>

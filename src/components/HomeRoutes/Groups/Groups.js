@@ -4,6 +4,7 @@ import "./groups.scss";
 import { auth, db } from "../../../firebase/firebase";
 import { AddGroup } from "./AddGroup/AddGroup";
 import { GroupLink } from "./GroupLink/GroupLink";
+import { Settings } from "./Settings/Settings";
 
 const Groups = () => {
   const [groups, setGroups] = useState([]);
@@ -22,7 +23,6 @@ const Groups = () => {
             data.push(doc.data());
           });
           setGroups(data);
-          console.table(data);
         });
     } catch (err) {
       /* handle error */
@@ -61,8 +61,9 @@ const Groups = () => {
         <div className="groups-header">My Groups</div>
         <AddGroup />
         <div className="groups-linkcontainer">{owned}</div>
-        <div className="groups-header">Other Groups</div>
+        <div className="groups-header groups-header-other">Other Groups</div>
         <div className="groups-linkcontainer">{viewer}</div>
+        <Settings />
       </div>
     </div>
   );

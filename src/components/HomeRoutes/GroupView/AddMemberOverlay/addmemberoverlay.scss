@@ -3,18 +3,19 @@
 
 .addmemberoverlay-container {
   position: fixed;
-  height: 30vh;
-  bottom: 50px;
+  bottom: 0px;
   right: 0px;
   left: 0px;
   padding: 16px;
   background-color: #F1F1F1;
-  z-index: 500;
+  z-index: 900;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
   transform: translateY(40vh);
   display: none;
+  background-color: var(--overlay);
+  color: var(--text-color);
 }
 
 
@@ -26,10 +27,32 @@
 }
 
 .addmemberoverlay-pillcontainer {
+  max-height: 50vh;
+  padding-bottom: 10px;
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
+  overflow-y: scroll;
 }
+
+.addmemberoverlay-filterinput {
+  border-radius: 8px;
+  padding: 6px 10px 6px 10px;
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.11);
+  background-color: var(--text-field-bg);
+  color: var(--text-color);
+}
+
+
+
+
+
+
 
 .addmemberoverlay-t-enter {
   transform: translateY(40vh);
