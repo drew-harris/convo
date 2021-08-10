@@ -9,9 +9,7 @@ const Bubble = ({ username, text, created, color }) => {
   if (username === auth.currentUser.displayName) {
     return (
       <div className="bubble bubble-mine ">
-        <div className={"bubble-content convo-bg-" + color}>
-          <div className="bubble-text">{text}</div>
-        </div>
+        <div className={"bubble-content convo-bg-" + color}>{text}</div>
       </div>
     );
   } else {
