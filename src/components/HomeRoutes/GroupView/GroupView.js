@@ -30,20 +30,16 @@ const GroupView = (props) => {
         list.push(doc.data().username);
       });
       allUsers = list;
-      console.log(allUsers);
 
-      const unsub = ref.onSnapshot((copy) => {
+      ref.onSnapshot((copy) => {
         try {
           const data = copy.data();
-          console.log(data);
           setGroupData(data);
 
           const excluded = allUsers.filter(
             (user) => !data.members.includes(user)
           );
           setExcluded(excluded);
-
-          console.log(excluded);
         } catch (err) {
           console.error(err.message);
         }
@@ -75,10 +71,8 @@ const GroupView = (props) => {
     }
     try {
       if (groupData.members.includes(name)) {
-        console.log("add");
         removeMember(name);
       } else {
-        console.log("remove");
         addMember(name);
       }
     } catch (err) {
@@ -87,7 +81,7 @@ const GroupView = (props) => {
     }
   };
 
-  if (groupData === null) {
+  if (!groupData) {
     return <div className="groupview-screen"></div>;
   } else {
     const memberPills = groupData.members.map((name) => {

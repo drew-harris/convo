@@ -29,16 +29,12 @@ const Home = () => {
     });
 
     if (window.matchMedia("(display-mode: standalone)").matches) {
-      console.log("installed");
     } else {
-      console.log("NEED TO INSTALL");
       setShowInstallPopup(true);
     }
   }, [history]);
 
-  console.log(remoteConfig.getBoolean("app_enabled"));
   const appEnabled = remoteConfig.getBoolean("app_enabled");
-  console.log("APP ENABLED: ", appEnabled);
 
   if (!userLoaded) {
     return null;

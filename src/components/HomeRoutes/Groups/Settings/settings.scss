@@ -4,8 +4,8 @@
   position: fixed;
   top: 16px;
   right: 16px;
-  background-color: var(--overlay);
-  color: var(--text-color);
+  background-color: var(--background-color);
+  color: var(--faded-icon);
 }
 
 .settings-icon-container {
@@ -17,13 +17,14 @@
   top: 100%;
   right: 100%;
   z-index: 900;
-  padding: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.33);
   gap: 20px;
   transform-origin: top right ;
   animation-name: scaleout;
   animation-duration: 0.1s;
   background-color: var(--overlay);
+  color: var(--text-color);
+  width: max-content;
 }
 
 
@@ -37,11 +38,11 @@
 }
 
 .settings-popup-option {
-  width: max-content;
+  padding: 10px;
 }
 
 .settings-popup-option:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .clickaway {

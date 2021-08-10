@@ -11,7 +11,6 @@ const AddGroup = () => {
   const [color, setColor] = useState("red");
 
   const createGroup = async () => {
-    console.log(nameInput);
     try {
       if (nameInput && color) {
         let docref = db.collection("groups").doc();
@@ -23,7 +22,6 @@ const AddGroup = () => {
           viewers: [],
           color: color,
         });
-        console.log(docref.id);
         setOpen(false);
         setNameInput("");
       }

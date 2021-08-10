@@ -40,7 +40,6 @@ const Comments = (props) => {
 
   const addComment = async () => {
     try {
-      console.log("adding comment");
       ref.add({
         username: auth.currentUser.displayName,
         text: commentText,
@@ -63,7 +62,6 @@ const Comments = (props) => {
             comments.push(doc.data());
           });
           setData(comments);
-          console.log(comments);
         });
       return unsubscribe;
     };

@@ -23,7 +23,6 @@ const Groups = () => {
             data.push(doc.data());
           });
           setGroups(data);
-          console.table(data);
         });
     } catch (err) {
       /* handle error */
@@ -59,12 +58,12 @@ const Groups = () => {
   return (
     <div className="groups-screen">
       <div className="groups-content">
-        <Settings />
         <div className="groups-header">My Groups</div>
         <AddGroup />
         <div className="groups-linkcontainer">{owned}</div>
         <div className="groups-header groups-header-other">Other Groups</div>
         <div className="groups-linkcontainer">{viewer}</div>
+        <Settings />
       </div>
     </div>
   );

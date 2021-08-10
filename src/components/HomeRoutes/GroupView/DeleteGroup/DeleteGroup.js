@@ -16,9 +16,8 @@ const DeleteGroup = ({ id }) => {
       cloudDelete({ path: id }).then((result) => {
         // Read result of the Cloud Function.
         var sanitizedMessage = result.data.text;
-        console.log(sanitizedMessage);
+        history.push("/groups");
       });
-      history.push("/groups");
     } catch (err) {
       console.error(err.message);
       alert("There was an error deleting your group");
