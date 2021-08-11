@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { db, functions } from "../../../../firebase/firebase";
+import { functions } from "../../../../firebase/firebase";
 import { useHistory } from "react-router";
 import React from "react";
 import "./deletegroup.scss";
@@ -15,7 +15,6 @@ const DeleteGroup = ({ id }) => {
       var cloudDelete = functions.httpsCallable("recursiveDelete");
       cloudDelete({ path: id }).then((result) => {
         // Read result of the Cloud Function.
-        var sanitizedMessage = result.data.text;
         history.push("/groups");
       });
     } catch (err) {

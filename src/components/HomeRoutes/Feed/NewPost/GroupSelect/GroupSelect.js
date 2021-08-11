@@ -25,11 +25,6 @@ const GroupSelect = (props) => {
     return <Item onChange={props.onChange} data={data} key={data.id} />;
   });
 
-  let color = null;
-  if (props.selected) {
-    color = props.selected.color;
-  }
-
   return (
     <div className="groupselect-container">
       <div className="groupselect-top-container" onClick={() => setOpen(!open)}>

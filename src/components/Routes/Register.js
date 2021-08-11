@@ -17,6 +17,18 @@ const Register = () => {
 
   const signUp = async () => {
     try {
+      let allUsers = [];
+      const allRef = db.collection("users").get();
+      const list = [];
+      (await allRef).forEach((doc) => {
+        list.push(doc.data().username.toLowerCase());
+      });
+      allUsers = list;
+
+      if (allUsers.includes(username.toLowerCase())) {
+        throw new Error("That username is already reserved");
+      }
+
       const userCredential = await auth.createUserWithEmailAndPassword(
         email,
         password
