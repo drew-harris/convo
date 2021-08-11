@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 50px;
   background-color: var(--background-color);
   padding: 26px;
   color: var(--text-color);
@@ -16,6 +16,7 @@
   animation-duration: 0.8s;
   animation-fill-mode: forwards;
   animation-delay: 0.3s;
+  z-index: 800;
 }
 
 .groupview-titleheader {
