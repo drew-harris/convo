@@ -37,7 +37,7 @@ const DeleteGroup = ({ id }) => {
           <div className="deletegroup-overlay-box">
             <div>Are you sure you want to delete this group?</div>
             <div className="deletegroup-button-container">
-              <button className="deletegroup-button" onClick={deleteGroup}>
+              <button className="deletegroup-button red" onClick={deleteGroup}>
                 Delete
               </button>
               <button className="deletegroup-button">Cancel</button>

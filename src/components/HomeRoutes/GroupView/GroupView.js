@@ -104,9 +104,6 @@ const GroupView = (props) => {
           handleTouch={handleTouch}
           handleClose={() => setOpen(false)}
         />
-        {groupData.owners.includes(auth.currentUser.displayName) && !open ? (
-          <DeleteGroup id={id} />
-        ) : null}
         <div className="groupview-titleheader">{groupData.name}</div>
         <div className="groupview-subheader">
           <div className="groupview-conditionalcontainer">
@@ -129,6 +126,9 @@ const GroupView = (props) => {
         <div className="groupview-subheader">Posts</div>
 
         <PostsView id={id} />
+        {groupData.owners.includes(auth.currentUser.displayName) && !open ? (
+          <DeleteGroup id={id} />
+        ) : null}
       </div>
     );
   }

@@ -13,8 +13,8 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
-  background-color: rgba(0, 0, 0, 0.25);
-  z-index: 800;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 900;
 }
 
 .deletegroup-overlay-box {
@@ -24,8 +24,9 @@
   margin-left: 30px;
   flex-direction: column;
   background-color: var(--overlay);
-  padding: 26px;
+  padding: 18px;
   border-radius: 9px;
+  position: relative;
   z-index: 900;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   animation-duration: 0.15s;
@@ -40,6 +41,11 @@
   margin-top: 30px;
 }
 
+.deletegroup-overlay-box .red {
+  color: #ff3636;
+
+}
+
 .deletegroup-button {
   background-color: var(--background-color);
   color: var(--text-color);
@@ -48,6 +54,4 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   font-weight: 700;
   font-size: 14px;
-
-
 }
