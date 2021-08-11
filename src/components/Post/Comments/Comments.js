@@ -155,7 +155,7 @@ const Comments = (props) => {
               value={commentText}
               onChange={(event) => setCommentText(event.target.value)}
             />
-            {commentText.length > 1 ? (
+            {commentText.length > 0 ? (
               <div className="comments-add-sendbutton" onClick={addComment}>
                 Send
               </div>
