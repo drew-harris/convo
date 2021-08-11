@@ -11,8 +11,11 @@
   background-color: var(--background-color);
   padding: 26px;
   color: var(--text-color);
+  opacity: 0;
   animation-name: fadein;
-  animation-duration: 1.35s;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-delay: 0.3s;
 }
 
 .groupview-titleheader {

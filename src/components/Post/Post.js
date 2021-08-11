@@ -1,19 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "./post.scss";
 import { Comments } from "./Comments/Comments";
 import { useHistory } from "react-router";
 
 const Post = (props) => {
-  const {
-    creator,
-    members,
-    id,
-    groupInfo,
-    text,
-    created,
-    latestComment,
-    commentCount,
-  } = props.data;
+  const { creator, id, groupInfo, text, created } = props.data;
   const history = useHistory();
 
   const redirect = () => {

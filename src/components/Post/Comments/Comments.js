@@ -51,19 +51,18 @@ const Comments = (props) => {
   };
 
   const setUpDataStream = async () => {
-    const initial = async () => {
-      const unsubscribe = ref
-        .orderBy("created", "desc")
-        .onSnapshot((querySnap) => {
-          var comments = [];
-          querySnap.forEach((doc) => {
-            comments.push(doc.data());
-          });
-          setData(comments);
+    try {
+      ref.orderBy("created", "desc").onSnapshot((querySnap) => {
+        var comments = [];
+        querySnap.forEach((doc) => {
+          comments.push(doc.data());
         });
-      return unsubscribe;
-    };
-    const unsubscribe = await initial();
+        setData(comments);
+      });
+    } catch (err) {
+      console.error(err.message);
+      alert("There was an error fetching comments");
+    }
   };
 
   useEffect(() => {
@@ -87,7 +86,7 @@ const Comments = (props) => {
       /* handle error */
     }
     return () => {};
-  }, []);
+  }, [ref]);
 
   const bubbles = data.map((data) => {
     return (
