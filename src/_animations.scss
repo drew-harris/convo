@@ -7,6 +7,15 @@
   }
 }
 
+@keyframes groupselect-expand {
+  from {
+    max-height: 0px;
+  }
+  to {
+    max-height: 255px;
+  }
+}
+
 @keyframes slideinright {
   from {
     transform: translateX(100vw);

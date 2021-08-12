@@ -24,12 +24,11 @@
   position: relative;
   z-index: 200;
   max-height: 40px;
-  overflow-y: hidden;
 }
 
 .newpost-open {
   max-height: 900px;
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .newpost-createbutton {
@@ -55,6 +54,7 @@
   font-size: 14px;
   padding: 10px;
 }
+
 
 .newpost-titleandclose {
   display: flex;

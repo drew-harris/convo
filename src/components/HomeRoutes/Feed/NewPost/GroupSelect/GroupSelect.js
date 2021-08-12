@@ -31,7 +31,9 @@ const GroupSelect = (props) => {
         {props.selected ? props.selected.name : "Select Group"}
         <FontAwesomeIcon icon={faChevronDown} />
       </div>
-      {open ? <div className="groupselect-items-container">{items}</div> : null}
+      {open ? (
+        <div className="groupselect-items-container open">{items}</div>
+      ) : null}
     </div>
   );
 };
