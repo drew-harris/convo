@@ -31,7 +31,7 @@ remoteConfig.defaultConfig = {
 remoteConfig
   .fetchAndActivate()
   .then(() => {
-    console.log("Remote Config Fetch Stats: ", remoteConfig.lastFetchStatus);
+    console.log("Remote Config Fetch Status: ", remoteConfig.lastFetchStatus);
   })
   .catch((err) => {
     console.error(err.message);
