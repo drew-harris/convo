@@ -7,6 +7,7 @@ import { InfoBanner } from "../InfoBanner/InfoBanner";
 
 // TODO: Check if username is already taken
 
+const regex = new RegExp("^[a-zA-Z0-9_.-]*$");
 const Register = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
@@ -53,6 +54,12 @@ const Register = () => {
     }
   };
 
+  const usernameInputUpdate = (event) => {
+    if (regex.test(event.target.value)) {
+      setUsername(event.target.value);
+    }
+  };
+
   useEffect(() => {}, []);
   return (
     <>
@@ -76,9 +83,10 @@ const Register = () => {
             />
             <input
               className="registration-input"
-              onChange={(event) => setUsername(event.target.value)}
+              onChange={usernameInputUpdate}
               placeholder="Username"
               value={username}
+              maxLength="19"
             />
           </div>
           <button

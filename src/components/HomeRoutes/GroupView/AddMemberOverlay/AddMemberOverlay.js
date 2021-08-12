@@ -10,7 +10,7 @@ const AddMemberOverlay = (props) => {
   const [filterInput, setFilterInput] = useState("");
 
   const memberPills = props.names.map((name) => {
-    if (name.includes(filterInput)) {
+    if (name.toLowerCase().includes(filterInput.toLowerCase())) {
       return (
         <MemberPill
           name={name}
