@@ -23,13 +23,13 @@
   gap: 14px;
   position: relative;
   z-index: 200;
-  max-height: 40px;
   overflow-y: hidden;
+  max-height: 40px;
 }
 
 .newpost-open {
   max-height: 900px;
-  transition: max-height 0.3s ease-out;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .newpost-createbutton {
@@ -52,9 +52,10 @@
   resize: none;
   border-radius: 8px;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   padding: 10px;
 }
+
 
 .newpost-titleandclose {
   display: flex;

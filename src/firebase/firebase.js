@@ -21,7 +21,7 @@ const db = firebase.firestore();
 const remoteConfig = firebase.remoteConfig();
 const functions = firebase.functions();
 
-remoteConfig.settings.minimumFetchIntervalMillis = 9000;
+remoteConfig.settings.minimumFetchIntervalMillis = 90000;
 
 remoteConfig.defaultConfig = {
   hype_message: "8/19",
@@ -31,7 +31,7 @@ remoteConfig.defaultConfig = {
 remoteConfig
   .fetchAndActivate()
   .then(() => {
-    console.log(remoteConfig.lastFetchStatus);
+    console.log("Remote Config Fetch Stats: ", remoteConfig.lastFetchStatus);
   })
   .catch((err) => {
     console.error(err.message);
