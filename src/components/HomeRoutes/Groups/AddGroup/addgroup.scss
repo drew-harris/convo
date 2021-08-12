@@ -52,6 +52,11 @@
   color: white;
 }
 
+.addgroup-input:focus {
+  outline: none;
+  border: 1px solid white;
+}
+
 .addgroup-createbutton {
   font-weight: 700;
   border: 1px solid white;
