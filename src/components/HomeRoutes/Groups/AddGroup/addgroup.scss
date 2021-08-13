@@ -21,7 +21,7 @@
 
 .addgroup-container-open {
   max-height: 900px;
-  transition: all 0.4s ease-out;
+  transition: max-height 0.4s ease-in-out;
 }
 
 .addgroup-titleandclose {

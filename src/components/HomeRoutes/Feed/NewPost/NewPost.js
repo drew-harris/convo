@@ -106,7 +106,7 @@ const NewPost = (props) => {
           placeholder="Enter Text Here"
           type="text"
           cols="auto"
-          rows={3}
+          rows={4}
           className="newpost-input"
           value={postText}
           onChange={(event) => setPostText(event.target.value)}

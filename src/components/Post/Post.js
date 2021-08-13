@@ -16,8 +16,7 @@ const Post = (props) => {
     const difference = (Date.now() - created.toMillis()) / 60000;
     if (Math.floor(difference / 1440) > 0) {
       ageString = Math.floor(difference / 1440) + "d";
-      console.log(difference);
-    } else if (Math.floor(difference / 60) > 0) {
+    } else if (Math.floor(difference / 59) > 0) {
       ageString = Math.floor(difference / 60) + "h";
     } else if (Math.floor(difference) > 0) {
       ageString = Math.floor(difference) + "m";

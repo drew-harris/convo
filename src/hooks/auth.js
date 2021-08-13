@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 const useAuth = () => {
   const [user, setUser] = useState(null);
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    const cleanup = auth.onAuthStateChanged((user) => {
       setUser(user);
     });
     return () => {
-      console.log("CLEANUP RAN");
+      cleanup();
     };
   }, []);
 
