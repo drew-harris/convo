@@ -5,6 +5,7 @@ import {
   auth,
   dbArrayUnion,
   dbArrayRemove,
+  analytics,
 } from "../../../firebase/firebase";
 import { MemberPill } from "./MemberPill";
 import { AddMemberOverlay } from "./AddMemberOverlay/AddMemberOverlay";
@@ -54,6 +55,7 @@ const GroupView = (props) => {
       members: dbArrayUnion(name),
       viewers: dbArrayUnion(name),
     });
+    analytics.logEvent("add_member");
     return null;
   };
 
@@ -62,6 +64,7 @@ const GroupView = (props) => {
       members: dbArrayRemove(name),
       viewers: dbArrayRemove(name),
     });
+    analytics.logEvent("remove_member");
     return null;
   };
 
@@ -116,7 +119,10 @@ const GroupView = (props) => {
           {groupData.owners.includes(auth.currentUser.displayName) ? (
             <div
               className="groupview-editmembersbutton"
-              onClick={() => setOpen(!open)}
+              onClick={() => {
+                setOpen(!open);
+                analytics.logEvent("toggle_edit_members", { group_id: id });
+              }}
             >
               EDIT MEMBERS
             </div>

@@ -2,12 +2,16 @@ import React from "react";
 import "./post.scss";
 import { Comments } from "./Comments/Comments";
 import { useHistory } from "react-router";
+import { analytics } from "../../firebase/firebase";
 
 const Post = (props) => {
   const { creator, id, groupInfo, text, created } = props.data;
   const history = useHistory();
 
   const redirect = () => {
+    analytics.logEvent("view_group_info", {
+      group_id: groupInfo.groupId,
+    });
     history.replace("/groups/" + groupInfo.groupId);
   };
 

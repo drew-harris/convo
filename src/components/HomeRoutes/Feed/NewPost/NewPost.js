@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { db, auth, timestamp } from "../../../../firebase/firebase";
+import { db, auth, timestamp, analytics } from "../../../../firebase/firebase";
 import { GroupSelect } from "./GroupSelect/GroupSelect";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -54,6 +54,9 @@ const NewPost = (props) => {
       setSelected(null);
       setPostText("");
       setOpen(false);
+      analytics.logEvent("create_post", {
+        group_id: selected.id,
+      });
     } catch (err) {
       alert(err.message);
     }

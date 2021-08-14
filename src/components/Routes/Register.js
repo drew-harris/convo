@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { auth, db, timestamp } from "../../firebase/firebase";
+import { analytics, auth, db, timestamp } from "../../firebase/firebase";
 import { useHistory } from "react-router-dom";
 import { SignNavCorner } from "../Misc/SignNavCorner";
 import { InfoBanner } from "../InfoBanner/InfoBanner";
@@ -45,6 +45,8 @@ const Register = () => {
         username: username,
         dateCreated: timestamp(),
       });
+
+      analytics.logEvent("sign_up");
       history.push("/");
     } catch (e) {
       /* handle error */
