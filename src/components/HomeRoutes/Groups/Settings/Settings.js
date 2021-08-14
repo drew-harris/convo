@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
-import { auth } from "../../../../firebase/firebase";
+import { analytics, auth } from "../../../../firebase/firebase";
 import "./settings.scss";
 
 const Settings = (props) => {
@@ -11,13 +11,16 @@ const Settings = (props) => {
     const currentValue = window.localStorage.getItem("dark");
     if (currentValue === "dark") {
       window.localStorage.setItem("dark", "light");
+      analytics.setUserProperties({ theme: "light" });
     } else {
       window.localStorage.setItem("dark", "dark");
+      analytics.setUserProperties({ theme: "dark" });
     }
     window.location.reload();
   };
 
-  const logOut = function () {
+  const logOut = () => {
+    analytics.logEvent("sign_out");
     auth.signOut();
   };
 

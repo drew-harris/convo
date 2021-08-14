@@ -2,11 +2,12 @@ import React from "react";
 import { useState } from "react";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { auth, remoteConfig } from "../../firebase/firebase";
+import { analytics, auth, remoteConfig } from "../../firebase/firebase";
 import { useHistory } from "react-router";
 
 import { Groups } from "../HomeRoutes/Groups/Groups";
 import { Feed } from "../HomeRoutes/Feed/Feed";
+import { FORCE_ALLOW_APP } from "../../constants";
 
 import { Navbar } from "../Navbar/Navbar";
 import { GroupView } from "../HomeRoutes/GroupView/GroupView";
@@ -24,6 +25,7 @@ const Home = () => {
       if (!user) {
         history.push("/login");
       } else {
+        analytics.setUserProperties({ username: user.displayName });
         setUserLoaded(true);
       }
     });
@@ -38,7 +40,7 @@ const Home = () => {
 
   if (!userLoaded) {
     return null;
-  } else if (appEnabled) {
+  } else if (appEnabled || FORCE_ALLOW_APP) {
     return (
       <>
         {showInstallPopup ? <InstallPopup /> : null}

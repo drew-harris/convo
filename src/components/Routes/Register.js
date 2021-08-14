@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { auth, db, timestamp } from "../../firebase/firebase";
+import { analytics, auth, db, timestamp } from "../../firebase/firebase";
 import { useHistory } from "react-router-dom";
 import { SignNavCorner } from "../Misc/SignNavCorner";
 import { InfoBanner } from "../InfoBanner/InfoBanner";
 
 // TODO: Check if username is already taken
 
+const regex = new RegExp("^[a-zA-Z0-9_.-]*$");
 const Register = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
@@ -44,12 +45,20 @@ const Register = () => {
         username: username,
         dateCreated: timestamp(),
       });
+
+      analytics.logEvent("sign_up");
       history.push("/");
     } catch (e) {
       /* handle error */
       console.error(e.message);
       setBannerIn(true);
       setBannerMessage(e.message);
+    }
+  };
+
+  const usernameInputUpdate = (event) => {
+    if (regex.test(event.target.value)) {
+      setUsername(event.target.value);
     }
   };
 
@@ -76,9 +85,10 @@ const Register = () => {
             />
             <input
               className="registration-input"
-              onChange={(event) => setUsername(event.target.value)}
+              onChange={usernameInputUpdate}
               placeholder="Username"
               value={username}
+              maxLength="19"
             />
           </div>
           <button

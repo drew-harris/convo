@@ -10,7 +10,7 @@ const AddMemberOverlay = (props) => {
   const [filterInput, setFilterInput] = useState("");
 
   const memberPills = props.names.map((name) => {
-    if (name.includes(filterInput)) {
+    if (name.toLowerCase().includes(filterInput.toLowerCase())) {
       return (
         <MemberPill
           name={name}
@@ -29,7 +29,7 @@ const AddMemberOverlay = (props) => {
     >
       <div className="addmemberoverlay-container">
         <div className="addmemberoverlay-header">
-          Edit Users
+          Add Members
           <div
             className="addmemberoverlay-closeicon"
             onClick={props.handleClose}

@@ -66,10 +66,10 @@
 
 .comments-add-container {
   border-radius: 8px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   background-color: var(--text-field-bg);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .comments-add-textfield {
@@ -82,6 +82,10 @@
   color: var(--text-color);
 } 
 
+.comments-add-textfield:focus {
+  outline: none;
+}
+
 .comments-add-sendbutton {
   padding-left: 8px;
   padding-right: 8px;
@@ -92,7 +96,7 @@
 .comments-overlay-clickoff {
   position: fixed;
   background-color: black;
-  opacity: 0.2;
+  opacity: 0.3;
   top: 0px;
   left: 0px;
   height: 100vh;

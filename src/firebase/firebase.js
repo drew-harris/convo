@@ -3,6 +3,7 @@ import "firebase/auth";
 import "firebase/functions";
 import "firebase/firestore";
 import "firebase/remote-config";
+import "firebase/analytics";
 import { allowEmulation } from "../constants";
 
 const firebaseConfig = {
@@ -20,8 +21,9 @@ const auth = firebase.auth();
 const db = firebase.firestore();
 const remoteConfig = firebase.remoteConfig();
 const functions = firebase.functions();
+const analytics = firebase.analytics();
 
-remoteConfig.settings.minimumFetchIntervalMillis = 9000;
+remoteConfig.settings.minimumFetchIntervalMillis = 90000;
 
 remoteConfig.defaultConfig = {
   hype_message: "8/19",
@@ -31,7 +33,7 @@ remoteConfig.defaultConfig = {
 remoteConfig
   .fetchAndActivate()
   .then(() => {
-    console.log(remoteConfig.lastFetchStatus);
+    console.log("Remote Config Fetch Status: ", remoteConfig.lastFetchStatus);
   })
   .catch((err) => {
     console.error(err.message);
@@ -61,4 +63,5 @@ export {
   functions,
   dbArrayUnion,
   dbArrayRemove,
+  analytics,
 };

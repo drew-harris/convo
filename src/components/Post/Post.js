@@ -2,12 +2,16 @@ import React from "react";
 import "./post.scss";
 import { Comments } from "./Comments/Comments";
 import { useHistory } from "react-router";
+import { analytics } from "../../firebase/firebase";
 
 const Post = (props) => {
   const { creator, id, groupInfo, text, created } = props.data;
   const history = useHistory();
 
   const redirect = () => {
+    analytics.logEvent("view_group_info", {
+      group_id: groupInfo.groupId,
+    });
     history.replace("/groups/" + groupInfo.groupId);
   };
 
@@ -16,8 +20,7 @@ const Post = (props) => {
     const difference = (Date.now() - created.toMillis()) / 60000;
     if (Math.floor(difference / 1440) > 0) {
       ageString = Math.floor(difference / 1440) + "d";
-      console.log(difference);
-    } else if (Math.floor(difference / 60) > 0) {
+    } else if (Math.floor(difference / 59) > 0) {
       ageString = Math.floor(difference / 60) + "h";
     } else if (Math.floor(difference) > 0) {
       ageString = Math.floor(difference) + "m";
