@@ -29,7 +29,7 @@ const AddMemberOverlay = (props) => {
     >
       <div className="addmemberoverlay-container">
         <div className="addmemberoverlay-header">
-          Edit Members
+          Add Members
           <div
             className="addmemberoverlay-closeicon"
             onClick={props.handleClose}
