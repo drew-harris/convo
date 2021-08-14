@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { auth } from "../../firebase/firebase";
+import { analytics, auth } from "../../firebase/firebase";
 import { useHistory } from "react-router-dom";
 
 import { SignNavCorner } from "../Misc/SignNavCorner";
@@ -18,6 +18,7 @@ const Login = () => {
     try {
       const credential = await auth.signInWithEmailAndPassword(email, password);
       console.log(credential.user.displayName);
+      analytics.logEvent("login");
       history.push("/");
     } catch (e) {
       console.log(e.message);

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { db, auth } from "../../../../firebase/firebase";
+import { db, auth, analytics } from "../../../../firebase/firebase";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -19,11 +19,13 @@ const AddGroup = () => {
           name: nameInput || " no title ",
           owners: [auth.currentUser.displayName],
           members: [auth.currentUser.displayName],
-          viewers: [],
           color: color,
         });
         setOpen(false);
         setNameInput("");
+        analytics.logEvent("create_group", {
+          color: color,
+        });
       }
     } catch (e) {
       /* handle error */

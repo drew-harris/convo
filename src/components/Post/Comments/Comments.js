@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import { db, auth, timestamp } from "../../../firebase/firebase";
+import { db, auth, timestamp, analytics } from "../../../firebase/firebase";
 import { CSSTransition } from "react-transition-group";
 import "./comments.scss";
 
@@ -44,6 +44,7 @@ const Comments = (props) => {
         created: timestamp(),
       });
       setCommentText("");
+      analytics.logEvent("comment", { group_id: props.groupInfo.groupId });
     } catch (err) {
       /* handle error */
       console.err(err.message);
@@ -117,6 +118,9 @@ const Comments = (props) => {
         className="post-viewcomments"
         onClick={() => {
           setOpen(true);
+          analytics.logEvent("open_comments", {
+            group_id: props.groupInfo.groupId,
+          });
           setUpDataStream();
         }}
       >
