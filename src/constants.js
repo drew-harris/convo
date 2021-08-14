@@ -1,6 +1,6 @@
 const allowEmulation = false;
-const SHOW_INSTALL_POPUP = false;
-const FORCE_ALLOW_APP = true;
+const SHOW_INSTALL_POPUP = true;
+const FORCE_ALLOW_APP = false;
 
 const colorNames = [
   "red",
