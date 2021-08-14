@@ -7,6 +7,7 @@ import { useHistory } from "react-router";
 
 import { Groups } from "../HomeRoutes/Groups/Groups";
 import { Feed } from "../HomeRoutes/Feed/Feed";
+import { FORCE_ALLOW_APP } from "../../constants";
 
 import { Navbar } from "../Navbar/Navbar";
 import { GroupView } from "../HomeRoutes/GroupView/GroupView";
@@ -38,7 +39,7 @@ const Home = () => {
 
   if (!userLoaded) {
     return null;
-  } else if (appEnabled) {
+  } else if (appEnabled || FORCE_ALLOW_APP) {
     return (
       <>
         {showInstallPopup ? <InstallPopup /> : null}
