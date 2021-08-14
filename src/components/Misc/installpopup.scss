@@ -1,9 +1,13 @@
 .install-popup {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   border-bottom: 1px solid gray;
   padding: 5px;
   font-size: 12px;
   text-align: center;
-  width: 100%;
-  background-color: white;
+  background-color: var(--bar-background);
+  color: var(--text-color);
   z-index: 900;
 }

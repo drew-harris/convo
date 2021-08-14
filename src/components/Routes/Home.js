@@ -37,14 +37,12 @@ const Home = () => {
   }, [history]);
 
   const appEnabled = remoteConfig.getBoolean("app_enabled");
-  console.log("APP ENABLED: ", appEnabled);
 
   if (!userLoaded) {
     return null;
   } else if (appEnabled || FORCE_ALLOW_APP) {
     return (
       <>
-        {showInstallPopup ? <InstallPopup /> : null}
         <div className="transition-background"></div>
         <Router>
           <Switch>
@@ -54,6 +52,7 @@ const Home = () => {
           </Switch>
         </Router>
         <Navbar />
+        {showInstallPopup ? <InstallPopup /> : null}
       </>
     );
   } else {
