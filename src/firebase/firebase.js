@@ -27,7 +27,7 @@ remoteConfig.settings.minimumFetchIntervalMillis = 90000;
 
 remoteConfig.defaultConfig = {
   hype_message: "8/19",
-  app_enabled: false,
+  app_enabled: true,
 };
 
 remoteConfig
