@@ -31,20 +31,20 @@ const Home = () => {
     });
 
     if (window.matchMedia("(display-mode: standalone)").matches) {
+      analytics.setUserProperties({ pwa: "Installed" });
     } else {
+      analytics.setUserProperties({ pwa: "Not installed" });
       setShowInstallPopup(true);
     }
   }, [history]);
 
   const appEnabled = remoteConfig.getBoolean("app_enabled");
-  console.log("APP ENABLED: ", appEnabled);
 
   if (!userLoaded) {
     return null;
   } else if (appEnabled || FORCE_ALLOW_APP) {
     return (
       <>
-        {showInstallPopup ? <InstallPopup /> : null}
         <div className="transition-background"></div>
         <Router>
           <Switch>
@@ -54,6 +54,7 @@ const Home = () => {
           </Switch>
         </Router>
         <Navbar />
+        {showInstallPopup ? <InstallPopup /> : null}
       </>
     );
   } else {
