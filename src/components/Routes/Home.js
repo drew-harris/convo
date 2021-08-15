@@ -31,7 +31,9 @@ const Home = () => {
     });
 
     if (window.matchMedia("(display-mode: standalone)").matches) {
+      analytics.setUserProperties({ pwa: "Installed" });
     } else {
+      analytics.setUserProperties({ pwa: "Not installed" });
       setShowInstallPopup(true);
     }
   }, [history]);
