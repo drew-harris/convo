@@ -56,7 +56,7 @@ const AddGroup = () => {
         <input
           type="text"
           className="addgroup-input"
-          placeholder="Group Name"
+          placeholder="Name"
           maxLength="34"
           value={nameInput}
           onChange={(event) => setNameInput(event.target.value)}
