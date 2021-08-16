@@ -10,6 +10,7 @@ import {
 import { MemberPill } from "./MemberPill";
 import { AddMemberOverlay } from "./AddMemberOverlay/AddMemberOverlay";
 import { DeleteGroup } from "./DeleteGroup/DeleteGroup";
+import { LeaveGroup } from "./LeaveGroup/LeaveGroup";
 import { PostsView } from "../../PostsView/PostsView";
 import "./groupview.scss";
 
@@ -53,7 +54,6 @@ const GroupView = (props) => {
   const addMember = async (name) => {
     ref.update({
       members: dbArrayUnion(name),
-      viewers: dbArrayUnion(name),
     });
     analytics.logEvent("add_member");
     return null;
@@ -62,7 +62,6 @@ const GroupView = (props) => {
   const removeMember = async (name) => {
     ref.update({
       members: dbArrayRemove(name),
-      viewers: dbArrayRemove(name),
     });
     analytics.logEvent("remove_member");
     return null;
@@ -132,9 +131,9 @@ const GroupView = (props) => {
         <div className="groupview-subheader">Posts</div>
 
         <PostsView id={id} />
-        {groupData.owners.includes(auth.currentUser.displayName) && !open ? (
+        {groupData.owners.includes(auth.currentUser.displayName) ? (
           <DeleteGroup id={id} />
-        ) : null}
+        ) : <LeaveGroup id={id} remove={removeMember}/>}
       </div>
     );
   }

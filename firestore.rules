@@ -4,19 +4,9 @@ service cloud.firestore {
     match /users/{document} {
       allow read, write: if true;
     }
-    match /posts/{document} {
-      allow read, write: if true;
-    }
-    match /groups/{document} {
-      allow read, write: if true;
-    }
-
-    match /groups/{group}/posts/{document} {
-      allow read, write: if true;
-    }
-
+    
     match /{document=**} {
-      allow read, write: if true;
+      allow read, write: if request.auth != null;
     }
   }
 }
