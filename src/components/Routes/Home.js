@@ -12,6 +12,7 @@ import { FORCE_ALLOW_APP } from "../../constants";
 import { Navbar } from "../Navbar/Navbar";
 import { GroupView } from "../HomeRoutes/GroupView/GroupView";
 import { HypeScreen } from "./HypeScreen/HypeScreen";
+import { Feedback } from "./Feedback/Feedback";
 import { InstallPopup } from "../Misc/InstallPopup";
 
 const Home = () => {
@@ -50,6 +51,7 @@ const Home = () => {
           <Switch>
             <Route exact path="/groups" component={Groups} />
             <Route exact path="/groups/:id" component={GroupView} />
+            <Route exact path="/feedback" component={Feedback} />
             <Route exact path="/" component={Feed} />
           </Switch>
         </Router>
