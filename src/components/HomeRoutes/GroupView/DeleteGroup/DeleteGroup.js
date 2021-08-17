@@ -6,7 +6,7 @@ import { useHistory } from "react-router";
 import React from "react";
 import "./deletegroup.scss";
 
-const DeleteGroup = ({ id }) => {
+const DeleteGroup = ({ id, setDeleting }) => {
   const [open, setOpen] = useState(false);
   const history = useHistory();
 
@@ -17,6 +17,7 @@ const DeleteGroup = ({ id }) => {
         // Read result of the Cloud Function.
         history.push("/groups");
       });
+      setDeleting();
       analytics.logEvent("delete_group", { group_id: id });
     } catch (err) {
       console.error(err.message);
