@@ -12,16 +12,23 @@ import { AddMemberOverlay } from "./AddMemberOverlay/AddMemberOverlay";
 import { DeleteGroup } from "./DeleteGroup/DeleteGroup";
 import { LeaveGroup } from "./LeaveGroup/LeaveGroup";
 import { PostsView } from "../../PostsView/PostsView";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "./groupview.scss";
 
 const GroupView = (props) => {
   const id = props.match.params.id;
   const [groupData, setGroupData] = useState(null);
   const [open, setOpen] = useState(false);
+  const [groupDeleting, setGroupDeleting] = useState(false);
   const [excluded, setExcluded] = useState(false);
   const ref = db.collection("groups").doc(id);
 
   let allUsers = [];
+
+  const setDeleting = () => {
+    setGroupDeleting(true);
+  };
 
   useEffect(() => {
     const initial = async () => {
@@ -83,8 +90,14 @@ const GroupView = (props) => {
     }
   };
 
-  if (!groupData) {
-    return <div className="groupview-screen"></div>;
+  if (!groupData || groupDeleting) {
+    return (
+      <div className="groupview-screen">
+        <div className="spinner-container">
+          <FontAwesomeIcon icon={faSpinner} spin />
+        </div>
+      </div>
+    );
   } else {
     const memberPills = groupData.members.map((name) => {
       return (
@@ -132,8 +145,10 @@ const GroupView = (props) => {
 
         <PostsView id={id} />
         {groupData.owners.includes(auth.currentUser.displayName) ? (
-          <DeleteGroup id={id} />
-        ) : <LeaveGroup id={id} remove={removeMember}/>}
+          <DeleteGroup id={id} setDeleting={setDeleting} />
+        ) : (
+          <LeaveGroup id={id} remove={removeMember} />
+        )}
       </div>
     );
   }

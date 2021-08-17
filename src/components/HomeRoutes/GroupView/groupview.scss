@@ -21,6 +21,18 @@
   z-index: 800;
 }
 
+.groupview-screen .spinner-container {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: grid;
+  place-items: center;
+  font-size: 36px;
+  color: gray;
+}
+
 .groupview-titleheader {
   font-size: 24px;
   font-weight: 700;
