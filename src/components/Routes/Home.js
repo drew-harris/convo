@@ -27,6 +27,7 @@ const Home = () => {
         history.push("/login");
       } else {
         analytics.setUserId(user.displayName);
+        analytics.setUserProperties({ username: user.displayName });
         setUserLoaded(true);
       }
     });
