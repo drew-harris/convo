@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { auth, db, timestamp } from "../../../firebase/firebase";
+import { APP_VERSION } from "../../../constants";
 import { useHistory } from "react-router";
 import "./feedback.scss";
 
@@ -43,6 +44,7 @@ const Feedback = () => {
           Submit
         </button>
       </div>
+      <div className="version">v{APP_VERSION}</div>
     </div>
   );
 };

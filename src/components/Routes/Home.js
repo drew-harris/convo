@@ -7,7 +7,6 @@ import { useHistory } from "react-router";
 
 import { Groups } from "../HomeRoutes/Groups/Groups";
 import { Feed } from "../HomeRoutes/Feed/Feed";
-import { UserList } from "./UserList/UserList";
 import { FORCE_ALLOW_APP } from "../../constants";
 
 import { Navbar } from "../Navbar/Navbar";
@@ -54,7 +53,6 @@ const Home = () => {
             <Route exact path="/groups" component={Groups} />
             <Route exact path="/groups/:id" component={GroupView} />
             <Route exact path="/feedback" component={Feedback} />
-            <Route exact path="/users" component={UserList} />
             <Route exact path="/" component={Feed} />
           </Switch>
         </Router>
