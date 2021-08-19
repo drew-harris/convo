@@ -100,14 +100,25 @@ const GroupView = (props) => {
     );
   } else {
     const memberPills = groupData.members.map((name) => {
-      return (
-        <MemberPill
-          name={name}
-          color="gray"
-          key={name}
-          handleTouch={handleTouch}
-        />
-      );
+      if (groupData.owners.includes(name)) {
+        return (
+          <MemberPill
+            name={name}
+            color="gray-owner"
+            key={name}
+            handleTouch={handleTouch}
+          />
+        );
+      } else {
+        return (
+          <MemberPill
+            name={name}
+            color="gray"
+            key={name}
+            handleTouch={handleTouch}
+          />
+        );
+      }
     });
 
     return (

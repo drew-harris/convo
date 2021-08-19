@@ -89,3 +89,8 @@
 .pillcolor-gray {
   background-color: var(--overlay);
 }
+
+.pillcolor-gray-owner {
+  background-color: var(--overlay);
+  text-decoration: underline;
+}
