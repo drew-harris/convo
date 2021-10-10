@@ -9,7 +9,7 @@ const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/login" component={Login} />
+        <Route path="/login" cumponent={Login} />
         <Route path="/register" component={Register} />
         <Route path="/users" component={UserList} />
         <Route path="/" component={Home} />
