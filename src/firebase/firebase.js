@@ -51,7 +51,7 @@ if (window.location.hostname === "localhost" && allowEmulation) {
     "color:red; font-size:2rem;background-color:black;"
   );
   auth.useEmulator("http://localhost:9099");
-  dsb.useEmulator("localhost", 8080);
+  db.useEmulator("localhost", 8080);
   functions.useEmulator("localhost", 5001);
 }
 
